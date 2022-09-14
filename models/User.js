@@ -11,12 +11,18 @@ User.init(
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
-  
     },
     name :{
         type: DataTypes.STRING,
         allowNull: false,
     },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [6],
+        },
+      },
     longitute:{
         type: DataTypes.DECIMAL(15, 15),
         allowNull: false,
