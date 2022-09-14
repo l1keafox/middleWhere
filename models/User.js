@@ -1,44 +1,40 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class User extends Model{
-}
+class User extends Model {}
 
-User.init( 
-    {
-    id:{
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-  
-    }
-    name:{
-        type: DataTypes.STRING,
-        allowNull: false,
+User.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    longitute:{
-        type: DataTypes.DECIMAL(15, 15),
-        allowNull: false,
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-    latitute:{
-        type: DataTypes.DECIMAL(15, 15),
-        allowNull: false,
-    }
-    groupId:{
-        type: DataTypes.INTEGER,
-        references: {
-            model:"group",
-            key:"id"
-        }   
-    }
-},
-{
+    longitute: {
+      type: DataTypes.DECIMAL(15, 15),
+      allowNull: false,
+    },
+    latitute: {
+      type: DataTypes.DECIMAL(15, 15),
+      allowNull: false,
+    },
+    groupId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "group",
+        key: "id",
+      },
+    },
+  },
+  {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: "user",
   }
-
-
 );
