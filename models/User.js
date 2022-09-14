@@ -15,22 +15,26 @@ User.init(
         allowNull: false,
     },
     longitute:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL(15, 15),
         allowNull: false,
     },
     latitute:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.DECIMAL(15, 15),
         allowNull: false,
     }
     groupId:{
-
+        type: DataTypes.INTEGER,
+        references: {
+            model:"group",
+            key:"id"
+        }   
     }
 },
 {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    // modelName: 'painting',
+    modelName: 'user',
   }
 
 
