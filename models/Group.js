@@ -16,11 +16,11 @@ Group.init(
       allowNull: false,
     },
     longitute: {
-      type: DataTypes.DECIMAL(15, 15),
+      type: DataTypes.DECIMAL(15, 6),
       allowNull: false,
     },
     latitute: {
-      type: DataTypes.DECIMAL(15, 15),
+      type: DataTypes.DECIMAL(15, 6),
       allowNull: false,
     },
   },
@@ -31,3 +31,4 @@ Group.init(
     modelName: "group",
   }
 );
+module.exports = Group;

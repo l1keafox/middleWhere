@@ -16,11 +16,11 @@ User.init(
       allowNull: false,
     },
     longitute: {
-      type: DataTypes.DECIMAL(15, 15),
+      type: DataTypes.DECIMAL(15, 6),
       allowNull: false,
     },
     latitute: {
-      type: DataTypes.DECIMAL(15, 15),
+      type: DataTypes.DECIMAL(15, 6),
       allowNull: false,
     },
     groupId: {
@@ -38,3 +38,6 @@ User.init(
     modelName: "user",
   }
 );
+
+
+module.exports = User;
