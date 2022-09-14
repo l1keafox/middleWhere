@@ -1,35 +1,30 @@
-class Group{
-    
-}
+class Group {}
 
-Group.init( 
-    {
-        id:{
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
-      
-        },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        longitute:{
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        latitute:{
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        }
-    
+Group.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
     },
-    {
-        sequelize,
-        freezeTableName: true,
-        underscored: true,
-        // modelName: 'painting',
-      }
-    
-)
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    longitute: {
+      type: DataTypes.DECIMAL(15, 15),
+      allowNull: false,
+    },
+    latitute: {
+      type: DataTypes.DECIMAL(15, 15),
+      allowNull: false,
+    },
+  },
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "group",
+  }
+);
