@@ -31,3 +31,4 @@ Group.init(
     modelName: "group",
   }
 );
+module.exports = Group;

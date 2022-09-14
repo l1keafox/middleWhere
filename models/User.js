@@ -12,8 +12,8 @@ User.init(
         primaryKey: true,
         autoIncrement: true,
   
-    }
-    name:{
+    },
+    name :{
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -24,7 +24,7 @@ User.init(
     latitute:{
         type: DataTypes.DECIMAL(15, 15),
         allowNull: false,
-    }
+    },
     groupId:{
         type: DataTypes.INTEGER,
         references: {
@@ -39,6 +39,7 @@ User.init(
     underscored: true,
     modelName: 'user',
   }
-
-
 );
+
+
+module.exports = User;
