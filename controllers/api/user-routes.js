@@ -26,7 +26,7 @@ router.post("/login", async (req, res) => {
   try {
     const loginUser = await User.findOne({
       where: {
-        email: req.body.email,
+        name: req.body.name,
       },
     });
 
