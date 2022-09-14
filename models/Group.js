@@ -1,4 +1,7 @@
-class Group {}
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+class Group extends Model {}
 
 Group.init(
   {
