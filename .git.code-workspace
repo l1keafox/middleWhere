@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": ".git"
+		},
+		{
+			"path": "config"
+		},
+		{
+			"path": "db"
+		},
+		{
+			"path": "models"
+		},
+		{
+			"path": "public"
+		}
+	]
+}
