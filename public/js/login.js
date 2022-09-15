@@ -7,7 +7,7 @@ const loginFormHandler = async (event) => {
   if (userName && password) {
     const response = await fetch("/api/users/login", {
       method: "POST",
-      body: JSON.stringify({ userName, passowrd }),
+      body: JSON.stringify({ userName, password }),
       headers: { "Content-Type": "application/json" },
     });
 
@@ -21,8 +21,7 @@ const loginFormHandler = async (event) => {
 
 const signupFormHandler = async (event) => {
     event.peventDefault();
-  console.log("here?");
-    const userName = document.querySelector('#username-signup'). value.trim();
+    const userName = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
 
     if (userName && password) {
