@@ -20,10 +20,10 @@ const loginFormHandler = async (event) => {
 };
 
 const signupFormHandler = async (event) => {
-    event.peventDefault();
+    event.preventDefault();
     const userName = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-
+//  console.log(userName,password);
     if (userName && password) {
         const response = await fetch ('/api/users' , {
             method: 'POST',
@@ -32,11 +32,11 @@ const signupFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+//            document.location.replace('/');
         } else {
             alert('Failed login');
         }
-    }
+    } 
 };
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
