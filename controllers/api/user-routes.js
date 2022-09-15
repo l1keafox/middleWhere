@@ -1,14 +1,20 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const User = require("../../models/User.js");
 // CREATE New User
 router.post("/", async (req, res) => {
   try {
+    let groupID;
+    if(!req.body.groupId){
+      groupID = 1;
+    }    else{
+      groupID = req.body.groupId;
+    }
+    console.log(req.body);
     const createUser = await User.create({
-      name: req.body.name,
+      userName: req.body.username,
       password: req.body.password,
-      groupId: req.body.groupId,
-    });
-    console.log("HERESDF?");
+      groupId: groupID,
+    });   
     req.session.save(() => {
       req.session.loggedIn = true;
 
