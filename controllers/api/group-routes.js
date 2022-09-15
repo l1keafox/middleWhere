@@ -15,10 +15,6 @@ router.get("/", async (req, res) => {
 
     const allGroups = groupData.map((groups) => groups.get({ plain: true }));
 
-    res.render("homepage", {
-      allGroups,
-      loggedIn: req.session.loggedIn,
-    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
