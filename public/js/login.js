@@ -82,7 +82,6 @@ async function newSignup(event) {
   async function success(position) {
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;
-    console.log("success");
     const reponse = await fetch('/api/users',{
       method: 'POST',
       body: JSON.stringify({
@@ -93,6 +92,11 @@ async function newSignup(event) {
       }),
       headers: {'Content-Type':'application/json'},
     });    
+     if(reponse.ok){
+    document.location.replace('/');
+   } //else {
+  //   }
+
   }
 
   async function error() {
@@ -126,10 +130,6 @@ async function newSignup(event) {
   //   });
 
 
-  //   if(reponse.ok){
-
-  //   } else {
-  //   }
   // }
 
 }
