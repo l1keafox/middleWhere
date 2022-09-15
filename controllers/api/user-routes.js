@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
       password: req.body.password,
       groupId: req.body.groupId,
     });
-
+    console.log("HERESDF?");
     req.session.save(() => {
       req.session.loggedIn = true;
 

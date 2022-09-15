@@ -2,8 +2,21 @@
 const router = require("express").Router();
 router.get("/", async (req, res) => {
     try {
-      res.render("homepage");
-    } catch (err) {
+      // This is where we determeine what page to render for the user.
+        
+      // If there is an session we will render map 
+      if(req.session && req.session.loggedIn){
+
+        res.render("map", {
+          allGroups,
+          loggedIn: req.session.loggedIn,
+        });
+      } else {
+        // If there is no session we will render Login.
+          res.render("login");
+        }
+
+      } catch (err) {
       console.log(err);
       res.status(500).json(err);
     }
