@@ -27,10 +27,9 @@ router.post("/login", async (req, res) => {
   try {
     const loginUser = await User.findOne({
       where: {
-        name: req.body.name,
+        userName: req.body.userName,
       },
     });
-
     if (!loginUser) {
       res
         .status(400)
@@ -38,7 +37,8 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const validPassword = await loginUser.checkPassword(req.body.password);
+    // This is ulgy ULGY needs to be fixed.
+    const validPassword = await loginUser.dataValues.password == req.body.password;
 
     if (!validPassword) {
       res

@@ -3,7 +3,7 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  const userName = document.querySelector("#user-log").value.trim();
+  const userName = document.querySelector("#username-log").value.trim();
   const password = document.querySelector("#password-log").value.trim();
 
   if (userName && password) {
@@ -20,7 +20,7 @@ const loginFormHandler = async (event) => {
       alert("Login Failed");
     }
   }catch(err){
-    console.log(err);password
+    console.log(err);
   }
   }
 };
