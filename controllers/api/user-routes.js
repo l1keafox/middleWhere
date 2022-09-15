@@ -3,17 +3,12 @@ const User = require("../../models/User.js");
 // CREATE New User
 router.post("/", async (req, res) => {
   try {
-    let groupID;
-    if(!req.body.groupId){
-      groupID = 1;
-    }    else{
-      groupID = req.body.groupId;
-    }
-    console.log(req.body);
     const createUser = await User.create({
       userName: req.body.username,
       password: req.body.password,
-      groupId: groupID,
+      longitude:req.body.longitude,
+      latitude:req.body.latitude
+//      groupId: groupID,
     });   
     req.session.save(() => {
       req.session.loggedIn = true;
