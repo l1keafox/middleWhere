@@ -2,21 +2,21 @@ const  User  = require('./../models/User.js');
 
 const userData = [
   {
-    name: 'Dog',
+    userName: 'Dog',
     longitute: -105.033678,
     latitute: 39.870972,
     password: 'dogdog',
     groupId: 1
   },
   {
-    name: 'Cat',
+    userName: 'Cat',
     longitute: -105.059101,
     latitute: 39.819307,
     password: 'catcat',
     groupId: 1
   },
   {
-    name: 'Hamster',
+    userName: 'Hamster',
     longitute: -105.228129,
     latitute: 40.002068,
     password: 'hamham',

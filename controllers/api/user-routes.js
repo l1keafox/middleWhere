@@ -5,15 +5,16 @@ router.post("/", async (req, res) => {
   try {
     let groupID;
     if(!req.body.groupId){
-      groupID = 0;
+      groupID = 1;
     }    else{
       groupID = req.body.groupId;
     }
-    const createUser = await new User.create({
-      userName: req.body.name,
+    console.log(req.body);
+    const createUser = await User.create({
+      userName: req.body.username,
       password: req.body.password,
       groupId: groupID,
-    });
+    });   
     req.session.save(() => {
       req.session.loggedIn = true;
 
