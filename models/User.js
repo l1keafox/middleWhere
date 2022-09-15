@@ -11,17 +11,25 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    userName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    
     longitute: {
       type: DataTypes.DECIMAL(15, 6),
-      allowNull: false,
+      allowNull: true,
     },
     latitute: {
       type: DataTypes.DECIMAL(15, 6),
+      allowNull: true,
+    },
+    password: {
+      type: DataTypes.STRING,
       allowNull: false,
+      validate:{
+        len:[8],
+      }
     },
     groupId: {
       type: DataTypes.INTEGER,
