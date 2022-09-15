@@ -9,4 +9,6 @@ router.get("/", async (req, res) => {
     }
   });
   
+//use /utils/auth.js (getAuth) for any page that needs user to be logged in to access
+
 module.exports = router;
