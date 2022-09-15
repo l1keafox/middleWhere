@@ -9,10 +9,12 @@ router.post("/", async (req, res) => {
     }    else{
       groupID = req.body.groupId;
     }
-    console.log(req.body);
+    console.log(req.body,req.body.longitude);
     const createUser = await User.create({
       userName: req.body.username,
       password: req.body.password,
+      longitude:req.body.longitude,
+      latitude:req.body.latitude,
       groupId: groupID,
     });   
     req.session.save(() => {
