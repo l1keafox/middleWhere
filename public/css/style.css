@@ -1,17 +1,24 @@
 *{
     font-family: 'Shadows Into Light', cursive;
 }
-<<<<<<< HEAD
 
 header {
     background-color: darkslateblue;
     text-align: center;
+    border-bottom: solid black;
 }
-=======
+
 #map {
     height: 400px;
     /* The height is 400 pixels */
     width: 100%;
     /* The width is the width of the web page */
   }
->>>>>>> 487ed8bd32e03ce5a49af7b52c85f83b33ccb411
+
+ .topnav {
+    background-color: grey;
+    text-align: end;
+    word-spacing: 5px;
+    height: 40px;
+    font-size: 25px;
+}
