@@ -11,4 +11,11 @@ const logout = async () => {
     }
 };
 
+async function goToProfile(){
+    document.location.replace('/profile');
+    
+}
+
 document.querySelector('#logout').addEventListener('click', logout);
+
+document.querySelector('#profile').addEventListener('click',goToProfile);
