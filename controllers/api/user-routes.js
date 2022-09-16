@@ -37,8 +37,7 @@ router.post("/login", async (req, res) => {
     }
 
     // This is ulgy ULGY needs to be fixed.
-    const validPassword =
-      (await loginUser.dataValues.password) == req.body.password;
+    const validPassword = loginUser.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
