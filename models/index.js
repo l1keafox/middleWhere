@@ -1,10 +1,12 @@
-const User = require('./User');
-const Group = require('./Group');
+const User = require("./User");
+const Group = require("./Group");
 
 Group.hasMany(User, {
-    foreignKey: 'groupId',
+  foreignKey: "groupId",
 });
 
-User.belongsTo(Group,{
-    foreignKey: 'groupId'
-})
+User.belongsTo(Group, {
+  foreignKey: "groupId",
+});
+
+module.exports = { User, Group };

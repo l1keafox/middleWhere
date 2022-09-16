@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { User, Group } = require("../../models");
+const { Group, User } = require("../../models");
+// const sequelize = require("../../config/connection");
 
 // GET group data on homepage for user
 router.get("/", async (req, res) => {
@@ -22,6 +23,7 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+console.log(Group);
 
 // GET group data by id, shared users from group
 router.get("/:id", async (req, res) => {
@@ -31,32 +33,33 @@ router.get("/:id", async (req, res) => {
   } else {
     // If the user is logged in, allow them to view groups by id
     try {
+      //can successfully get the data - need to fix sequelize.literal error
       const groupsData = await Group.findByPk(req.params.id, {
         include: [{ model: User }],
         attributes: {
           include: [
             "id",
-            "userName",
+            "name",
             "longitude",
             "latitude",
-            [
-              sequelize.literal(
-                "(SELECT AVG(longitude) FROM user WHERE user.groupId = group.id)"
-              ),
-              "centerLongitude",
-            ],
-            [
-              sequelize.literal(
-                "(SELECT AVG(latitude) FROM user WHERE user.groupId = group.id)"
-              ),
-              "centerLatitude",
-            ],
+            // [
+            //   sequelize.literal(
+            //     "(SELECT AVG(longitude) FROM user WHERE user.groupId = group.id)"
+            //   ),
+            //   "centerLongitude",
+            // ],
+            // [
+            //   sequelize.literal(
+            //     "(SELECT AVG(latitude) FROM user WHERE user.groupId = group.id)"
+            //   ),
+            //   "centerLatitude",
+            // ],
           ],
         },
       });
 
       const group = groupsData.get({ plain: true });
-      res.render("map", { group, loggedIn: req.session.loggedIn });
+      res.status(200).json(group);
     } catch (err) {
       console.log(err);
       res.status(500).json(err);

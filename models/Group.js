@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Group extends Model {}
 
@@ -15,11 +15,11 @@ Group.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    longitute: {
+    longitude: {
       type: DataTypes.DECIMAL(15, 6),
       allowNull: false,
     },
-    latitute: {
+    latitude: {
       type: DataTypes.DECIMAL(15, 6),
       allowNull: false,
     },
