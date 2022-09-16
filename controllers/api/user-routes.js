@@ -6,10 +6,10 @@ router.post("/", async (req, res) => {
     const createUser = await User.create({
       userName: req.body.username,
       password: req.body.password,
-      longitude:req.body.longitude,
-      latitude:req.body.latitude
-//      groupId: groupID,
-    });   
+      longitude: req.body.longitude,
+      latitude: req.body.latitude,
+      //      groupId: groupID,
+    });
     req.session.save(() => {
       req.session.loggedIn = true;
 
@@ -22,7 +22,6 @@ router.post("/", async (req, res) => {
 });
 
 // Login User
-
 router.post("/login", async (req, res) => {
   try {
     const loginUser = await User.findOne({
@@ -38,7 +37,8 @@ router.post("/login", async (req, res) => {
     }
 
     // This is ulgy ULGY needs to be fixed.
-    const validPassword = await loginUser.dataValues.password == req.body.password;
+    const validPassword =
+      (await loginUser.dataValues.password) == req.body.password;
 
     if (!validPassword) {
       res
@@ -54,6 +54,20 @@ router.post("/login", async (req, res) => {
         .status(200)
         .json({ user: loginUser, message: "You are now logged in!" });
     });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/allGroups/:id", async (req, res) => {
+  try {
+    const groupData = await Group.findAll({
+      where: { id: req.params.id },
+      attributes: ["id", "name"],
+    });
+    const allGroups = groupData.get({ plain: true });
+    res.status(200).json(allGroups);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
