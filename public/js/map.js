@@ -17,12 +17,19 @@ async function initMap() {
       method:'GET',
     });
     let inGroup = await allUsers.json();
-    // The marker, positioned at Uluru
-    console.log(inGroup);
     const marker = new google.maps.Marker({
       position: centerOfMap,
       map: map,
     });
+
+    for(let person of inGroup){
+      const personPos = { lat: parseFloat( person.latitude ), lng: parseFloat( person.longitude ) };
+      const marker = new google.maps.Marker({
+        position: personPos,
+        map: map,
+      });
+    }
+
   }
   
   window.initMap = initMap; 
