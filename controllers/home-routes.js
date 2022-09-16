@@ -6,9 +6,10 @@ router.get("/", async (req, res) => {
         
       // If there is an session we will render map 
       if(req.session && req.session.loggedIn){
-
+        // Here we should make an api/group/id# request to grab info for the map.
+        let allGroups;
         res.render("map", {
-//          allGroups,
+          allGroups,
           loggedIn: req.session.loggedIn,
         });
       } else {
