@@ -16,11 +16,11 @@ User.init(
       allowNull: false,
     },
     
-    longitute: {
+    longitude: {
       type: DataTypes.DECIMAL(15, 6),
       allowNull: true,
     },
-    latitute: {
+    latitude: {
       type: DataTypes.DECIMAL(15, 6),
       allowNull: true,
     },

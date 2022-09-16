@@ -1,12 +1,13 @@
-const { response } = require("express");
+//const { response } = require("express");
 
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  const userName = document.querySelector("#user-log").value.trim();
+  const userName = document.querySelector("#username-log").value.trim();
   const password = document.querySelector("#password-log").value.trim();
 
   if (userName && password) {
+    try{
     const response = await fetch("/api/users/login", {
       method: "POST",
       body: JSON.stringify({ userName, password }),
@@ -18,53 +19,43 @@ const loginFormHandler = async (event) => {
     } else {
       alert("Login Failed");
     }
+  }catch(err){
+    console.log(err);
+  }
   }
 };
 
-const signupFormHandler = async (event) => {
-    event.preventDefault();
-    const userName = document.querySelector('#username-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-  console.log(userName,password);
-  console.log(JSON.stringify({userName, password}));
-    if (userName && password) {
-        const response = await fetch ('/api/users' , {
-            method: 'POST',
-            body: JSON.stringify({userName, password}),
-            headers: {'Content-Type': 'applications/json'},
-        });
-        console.log(response,"{reponse?");
-        if (response.ok) {
-//            document.location.replace('/');
-        } else {
-            alert('Failed login');
-        }
-    } 
-};
-async function newSignup(event) {
+
+
+async function signupFormHandler(event) {
   event.preventDefault();
 
-  const userName = document.querySelector('#username-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
-  console.log(userName,password);
-  if(userName && password) {
-    const reponse = await fetch('/api/users',{
-      method: 'POST',
+  
+  const userName = document.querySelector("#username-signup").value.trim();
+  const password = document.querySelector("#password-signup").value.trim();
+  let latitude;
+  let longitude;
+  async function success(position) {
+    const reponse = await fetch("/api/users", {
+      method: "POST",
       body: JSON.stringify({
-        username:userName,
-        password:password
+        username: userName,
+        password: password,
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
       }),
-      headers: {'Content-Type':'application/json'},
+      headers: { "Content-Type": "application/json" },
     });
-
-
-    if(response.ok){
-
+    if (reponse.ok) {
+      document.location.replace("/");
     } else {
+      console.log("404");
     }
   }
 
+  console.log("success");
+  navigator.geolocation.getCurrentPosition(success, success);
 }
-//document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 
-document.querySelector('.signup-form').addEventListener('submit', newSignup);
+document.querySelector(".signup-form").addEventListener("submit", signupFormHandler);

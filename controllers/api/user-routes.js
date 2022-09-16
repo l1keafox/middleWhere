@@ -3,17 +3,12 @@ const User = require("../../models/User.js");
 // CREATE New User
 router.post("/", async (req, res) => {
   try {
-    let groupID;
-    if(!req.body.groupId){
-      groupID = 1;
-    }    else{
-      groupID = req.body.groupId;
-    }
-    console.log(req.body);
     const createUser = await User.create({
       userName: req.body.username,
       password: req.body.password,
-      groupId: groupID,
+      longitude:req.body.longitude,
+      latitude:req.body.latitude
+//      groupId: groupID,
     });   
     req.session.save(() => {
       req.session.loggedIn = true;
@@ -32,10 +27,9 @@ router.post("/login", async (req, res) => {
   try {
     const loginUser = await User.findOne({
       where: {
-        name: req.body.name,
+        userName: req.body.userName,
       },
     });
-
     if (!loginUser) {
       res
         .status(400)
@@ -43,7 +37,8 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const validPassword = await loginUser.checkPassword(req.body.password);
+    // This is ulgy ULGY needs to be fixed.
+    const validPassword = await loginUser.dataValues.password == req.body.password;
 
     if (!validPassword) {
       res
