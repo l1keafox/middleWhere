@@ -9,7 +9,34 @@ header {
 }
 
  /* zach space */
+ .container {
+    display: flex;
+    justify-content: space-between;
+ }
 
+.row {
+    flex-direction: column;
+    background-color: gainsboro;
+}
+
+.visits-card-header {
+    background-color: gainsboro;
+}
+
+.groups-card-header {
+    background-color: gainsboro;
+}
+
+.column {
+    float: left;
+    height: 600px;
+    width: 30%;
+    padding: 0 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
 
 
 
