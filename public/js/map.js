@@ -1,17 +1,23 @@
 // Initialize and add the map
-function initMap() {
+async function initMap() {
     // The location of Uluru
-    const uluru = { lat: 39.344, lng: -105.031 };
+    const response = await fetch("/api/groups/1",{
+      methd:'GET',
+    });
+    let json = await response.json();
+
+    const centerOfMap = { lat: parseFloat( json.latitude ), lng: parseFloat( json.longitude ) };
     // The map, centered at Uluru
     const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 10,
-      center: uluru,
+      zoom: 8,
+      center: centerOfMap,
     });
+    
     // The marker, positioned at Uluru
     const marker = new google.maps.Marker({
-      position: uluru,
+      position: centerOfMap,
       map: map,
     });
   }
   
-  window.initMap = initMap;
+  window.initMap = initMap; 
