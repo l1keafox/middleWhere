@@ -8,12 +8,12 @@ router.get("/", async (req, res) => {
       if(req.session && req.session.loggedIn){
 
         res.render("map", {
-          allGroups,
+//          allGroups,
           loggedIn: req.session.loggedIn,
         });
       } else {
         // If there is no session we will render Login.
-          res.render("login");
+        res.render("login");
         }
 
       } catch (err) {
