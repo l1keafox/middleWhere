@@ -8,10 +8,11 @@ router.get("/", async (req, res) => {
       if(req.session && req.session.loggedIn){
         // Here we should make an api/group/id# request to grab info for the map.
         let allGroups;
-        res.render("map", {
-          allGroups,
-          loggedIn: req.session.loggedIn,
-        });
+        res.render("profile");
+        // res.render("map", {
+        //   allGroups,
+        //   loggedIn: req.session.loggedIn,
+        // });
       } else {
         // If there is no session we will render Login.
         res.render("login");
