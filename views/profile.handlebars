@@ -1,24 +1,20 @@
-<nav>
-    <p>logout</p>
-    <p>Get Location</p>
-</nav>
-<main>
-    <div class="user-card-header">
+<div class="container">
+    <div class="column user-card-header col-3" >
         <h1>User Info</h1>
     </div>
-        <div class="user-card-info">
+        <div class="card user-card-info">
             {{user_info}}
         </div>
-    <div class="visits-card-header">
+    <div class="column visits-card-header col-3">
         <h1>Recently Visited Locations</h1>
     </div>
-        <div class="recently-visited-card">
+        <div class="card recently-visited-card">
             {{recent_visits}}
         </div>
-    <div class="groups-card-header">
+    <div class="column groups-card-header col-3">
         <h1>Your Groups</h1>
     </div>
-        <div class="user-groups-card>">
+        <div class="card user-groups-card>">
             {{user_groups}}
         </div>
-</main>
+</div>
