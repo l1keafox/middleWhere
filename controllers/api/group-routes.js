@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
 });
 
 // GET group data by id, shared users from group
-router.get("/groups/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   // Redirect the user to the login page if not logged in
   if (!req.session.loggedIn) {
     res.redirect("/login");
