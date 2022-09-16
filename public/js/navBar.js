@@ -16,6 +16,12 @@ async function goToProfile(){
     
 }
 
+async function goToMap() {
+    document.location.replace('/');
+}
+
 document.querySelector('#logout').addEventListener('click', logout);
 
 document.querySelector('#profile').addEventListener('click',goToProfile);
+
+document.querySelector('#map').addEventListener('click', goToMap);
