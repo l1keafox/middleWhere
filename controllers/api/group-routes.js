@@ -34,13 +34,29 @@ router.get("/:id", async (req, res) => {
     try {
       console.log(Group);
       const groupsData = await Group.findByPk(req.params.id, {
-        include: [
-          {
-            model: User,
-            attributes: ["id", "userName", "longitude", "latitude"],
-          },
-        ],
+        include: [{ model: User }],
+        attributes: {
+          include: [
+            "id",
+            "userName",
+            "longitude",
+            "latitude",
+            [
+              sequelize.literal(
+                "(SELECT AVG(longitude) FROM user WHERE user.groupId = group.id)"
+              ),
+              "centerLongitude",
+            ],
+            [
+              sequelize.literal(
+                "(SELECT AVG(latitude) FROM user WHERE user.groupId = group.id)"
+              ),
+              "centerLatitude",
+            ],
+          ],
+        },
       });
+
       const group = groupsData.get({ plain: true });
       res.render("map", { group, loggedIn: req.session.loggedIn });
     } catch (err) {
