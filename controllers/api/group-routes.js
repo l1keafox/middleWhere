@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const { User, Group } = require("../../models");
+const { User } = require("../../models");
+const Group = require("../../models/Group.js")
 
 // GET group data on homepage for user
 router.get("/", async (req, res) => {
@@ -24,13 +25,14 @@ router.get("/", async (req, res) => {
 });
 
 // GET group data by id, shared users from group
-router.get("/groups/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   // Redirect the user to the login page if not logged in
   if (!req.session.loggedIn) {
     res.redirect("/login");
   } else {
     // If the user is logged in, allow them to view groups by id
     try {
+      console.log(Group);
       const groupsData = await Group.findByPk(req.params.id, {
         include: [
           {
