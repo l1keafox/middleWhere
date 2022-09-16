@@ -2,7 +2,7 @@
 async function initMap() {
     // The location of Uluru
     const response = await fetch("/api/groups/1",{
-      methd:'GET',
+      method:'GET',
     });
     let json = await response.json();
 
@@ -13,7 +13,12 @@ async function initMap() {
       center: centerOfMap,
     });
     
+    const allUsers = await fetch("/api/groups/allUsers/1",{
+      method:'GET',
+    });
+    let inGroup = await allUsers.json();
     // The marker, positioned at Uluru
+    console.log(inGroup);
     const marker = new google.maps.Marker({
       position: centerOfMap,
       map: map,
