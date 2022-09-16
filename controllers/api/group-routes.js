@@ -7,7 +7,7 @@ router.get("/allUsers/:id", async (req, res) => {
   try {
     const userData = await User.findAll({
       where: { groupId: req.params.id },
-      attributes: ["userName"],
+      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
     });
     const allUsers = userData.map((data) => data.get({ plain: true }));
     res.status(200).json(allUsers);
