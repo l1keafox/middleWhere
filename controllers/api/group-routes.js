@@ -12,12 +12,39 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-
     const allGroups = groupData.map((groups) => groups.get({ plain: true }));
-
+    res.render("map", {
+      allGroups,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
+  }
+});
+
+// GET group data by id, shared users from group
+router.get("/groups/:id", async (req, res) => {
+  // Redirect the user to the login page if not logged in
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+  } else {
+    // If the user is logged in, allow them to view groups by id
+    try {
+      const groupsData = await Group.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+            attributes: ["id", "userName", "longitude", "latitude"],
+          },
+        ],
+      });
+      const group = groupsData.get({ plain: true });
+      res.render("map", { group, loggedIn: req.session.loggedIn });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
   }
 });
 
