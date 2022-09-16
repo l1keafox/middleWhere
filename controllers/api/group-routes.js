@@ -2,28 +2,20 @@ const router = require("express").Router();
 const { Group, User } = require("../../models");
 // const sequelize = require("../../config/connection");
 
-// GET group data on homepage for user
-router.get("/", async (req, res) => {
+// GET group data to show all the users in the group
+router.get("/allUsers/:id", async (req, res) => {
   try {
-    const groupData = await Group.findAll({
-      include: [
-        {
-          model: Group,
-          attributes: ["name"],
-        },
-      ],
+    const userData = await User.findAll({
+      where: { groupId: req.params.id },
+      attributes: ["userName"],
     });
-    const allGroups = groupData.map((groups) => groups.get({ plain: true }));
-    res.render("map", {
-      allGroups,
-      loggedIn: req.session.loggedIn,
-    });
+    const allUsers = userData.map((data) => data.get({ plain: true }));
+    res.status(200).json(allUsers);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-console.log(Group);
 
 // GET group data by id, shared users from group
 router.get("/:id", async (req, res) => {
