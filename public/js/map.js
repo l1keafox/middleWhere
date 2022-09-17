@@ -7,8 +7,8 @@ async function initMap() {
     let json = await response.json();
 
   const centerOfMap = {
-    lat: json.centerLat,
-    lng: json.centerLong,
+    lat: parseFloat(json.latitude),
+    lng: parseFloat(json.longitude),
   };
   console.log(centerOfMap);
  
