@@ -20,9 +20,22 @@ async function goToMap() {
     document.location.replace('/');
 }
 
+async function joinGroup(){
+    //TODO - use route /api/users/NOTYETCREATED to join a party
+    console.log("Join Group!",document.querySelector('#userGroupInput').value);
+}
+
+async function createGroup(){
+    // TODO - use post too /api/groups/ to create a group.
+    console.log('create Group!',document.querySelector('#userGroupInput').value);
+}
+
 document.querySelector('#logout').addEventListener('click', logout);
 
 document.querySelector('#profile').addEventListener('click',goToProfile);
+document.querySelector('#joinGroup').addEventListener('click',joinGroup);
+document.querySelector('#createGroup').addEventListener('click',createGroup);
+
 
 // TODO - this Links to the Map that is showin map.handle bars - not in the maps button in main.handlebars.
 document.querySelector('#map').addEventListener('click', goToMap);
