@@ -16,6 +16,13 @@ async function goToProfile(){
     
 }
 
+async function goToMap() {
+    document.location.replace('/');
+}
+
 document.querySelector('#logout').addEventListener('click', logout);
 
 document.querySelector('#profile').addEventListener('click',goToProfile);
+
+// TODO - this Links to the Map that is showin map.handle bars - not in the maps button in main.handlebars.
+document.querySelector('#map').addEventListener('click', goToMap);

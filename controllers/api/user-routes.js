@@ -37,8 +37,7 @@ router.post("/login", async (req, res) => {
     }
 
     // This is ulgy ULGY needs to be fixed.
-    const validPassword =
-      (await loginUser.dataValues.password) == req.body.password;
+    const validPassword = loginUser.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -59,6 +58,14 @@ router.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// TODO - create a router.get for /getCurrentGroupId or something like it. 
+
+
+// TODO - create a router.put to update user for current groupId.
+
+// TODO - create a router.put to leave group? Or should this be combined with the top with an option of 0/Null?
+
 
 router.get("/allGroups/:id", async (req, res) => {
   try {
