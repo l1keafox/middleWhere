@@ -10,7 +10,7 @@ router.get("/allUsers/:id", async (req, res) => {
   if(results === null) {
     res.status(500).json(err);
   } else {
-    res.status(200).json(allUsers);
+    res.status(200).json(results);
   }
 });
 
