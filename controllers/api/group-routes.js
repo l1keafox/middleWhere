@@ -1,19 +1,16 @@
 const router = require("express").Router();
 const { Group, User } = require("../../models");
-// const sequelize = require("../../config/connection");
+const centerLocation = require("../../utils/center-location");
 
 // GET group data to show all the users in the group
 router.get("/allUsers/:id", async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      where: { groupId: req.params.id },
-      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
-    });
-    const allUsers = userData.map((data) => data.get({ plain: true }));
-    res.status(200).json(allUsers);
-  } catch (err) {
-    console.log(err);
+  //function that calculates center location
+  let results = centerLocation(req.params.id);
+  
+  if(results === null) {
     res.status(500).json(err);
+  } else {
+    res.status(200).json(allUsers);
   }
 });
 
