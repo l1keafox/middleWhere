@@ -7,7 +7,7 @@ async function initMap() {
     let json = await response.json();
 
     const centerOfMap = { lat: parseFloat( json.latitude ), lng: parseFloat( json.longitude ) };
-    console.log(centerOfMap);
+    console.log(centerOfMap,json.latitude);
     // The map, centered at Uluru
     const image =
     "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
