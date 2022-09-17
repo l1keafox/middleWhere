@@ -1,5 +1,5 @@
 const  User  = require('./../models/User.js');
-
+// TODO - create more seeds users.
 const userData = [
   {
     userName: 'Dog',
