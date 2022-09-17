@@ -6,6 +6,7 @@
 // Initialize and add the map
 
 async function initMap() {
+
     // TODO :
     // WE need to pull Sser groupId and replace it in the reponse fetch.
     // so it'll be await fetch'/api/users/myGroupID'
@@ -36,17 +37,27 @@ async function initMap() {
       position: centerOfMap,
       icon: image,
 
+  const allUsers = await fetch("/api/groups/allUsers/1", {
+    method: "GET",
+  });
+  let inGroup = await allUsers.json();
+  const marker = new google.maps.Marker({
+    position: centerOfMap,
+    icon: image,
+
+    map: map,
+  });
+
+  for (let person of inGroup) {
+    const personPos = {
+      lat: parseFloat(person.latitude),
+      lng: parseFloat(person.longitude),
+    };
+    const marker = new google.maps.Marker({
+      position: personPos,
       map: map,
     });
-
-    for(let person of inGroup){
-      const personPos = { lat: parseFloat( person.latitude ), lng: parseFloat( person.longitude ) };
-      const marker = new google.maps.Marker({
-        position: personPos,
-        map: map,
-      });
-    }
-
   }
-  
-  window.initMap = initMap; 
+}
+
+window.initMap = initMap;
