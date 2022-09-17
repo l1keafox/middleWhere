@@ -5,9 +5,9 @@ const centerLocation = require("../../utils/center-location");
 // GET group data to show all the users in the group
 router.get("/allUsers/:id", async (req, res) => {
   //function that calculates center location
-  let results = centerLocation(req.params.id);
-  
-  if(results === null) {
+  let results = await centerLocation(req.params.id);
+
+  if (results === null) {
     res.status(500).json(err);
   } else {
     res.status(200).json(results);
