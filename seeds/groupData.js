@@ -1,5 +1,5 @@
 const Group = require("./../models/Group.js");
-
+// TODO - create  more group seeds.
 const groupData = [
   {
     name: "Pets",

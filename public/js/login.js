@@ -33,8 +33,6 @@ async function signupFormHandler(event) {
   
   const userName = document.querySelector("#username-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
-  let latitude;
-  let longitude;
   async function success(position) {
     const reponse = await fetch("/api/users", {
       method: "POST",

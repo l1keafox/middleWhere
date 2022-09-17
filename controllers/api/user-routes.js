@@ -59,6 +59,14 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// TODO - create a router.get for /getCurrentGroupId or something like it. 
+
+
+// TODO - create a router.put to update user for current groupId.
+
+// TODO - create a router.put to leave group? Or should this be combined with the top with an option of 0/Null?
+
+
 router.get("/allGroups/:id", async (req, res) => {
   try {
     const groupData = await Group.findAll({
