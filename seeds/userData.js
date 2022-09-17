@@ -11,7 +11,7 @@ const userData = [
   {
     userName: 'Cat',
     longitude: -105.059101,
-    latitude: 39.819307,
+    latitude: 39.,
     password: 'catcat',
     groupId: 1
   },
