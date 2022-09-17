@@ -12,8 +12,8 @@ async function initMap() {
     // so it'll be await fetch'/api/users/myGroupID'
     // We need to see if user has a groupID, if not, then do not init map,
     // and instead we show join/create group.
-
-
+  
+    
     
     let userGroupId = 1;
     const response = await fetch(`/api/groups/${userGroupId}`,{
