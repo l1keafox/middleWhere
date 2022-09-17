@@ -7,8 +7,8 @@ async function initMap() {
   let json = await response.json();
 
   const centerOfMap = {
-    lat: parseFloat(json.latitude),
-    lng: parseFloat(json.longitude),
+    lat: json.centerLat,
+    lng: json.centerLong,
   };
   console.log(centerOfMap);
   // The map, centered at Uluru
