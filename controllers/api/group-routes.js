@@ -2,9 +2,18 @@ const router = require("express").Router();
 const { Group, User } = require("../../models");
 const centerLocation = require("../../utils/center-location");
 
-// TODO - create a route.post? to create a new group.
-
-
+router.post("/", (req, res) => {
+  Group.create({
+    id: req.body.id,
+    name: req.body.name,
+  })
+    .then((newGroup) => {
+      res.json(newGroup);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
 // GET group data to show all the users in the group
 router.get("/allUsers/:id", async (req, res) => {
