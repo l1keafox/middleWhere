@@ -1,165 +1,63 @@
-*{
-    font-family: 'Shadows Into Light', cursive;
+* {
+  font-family: "Shadows Into Light", cursive;
 }
 
 header {
-    background-color: darkslateblue;
-    text-align: center;
-    border-bottom: solid black;
+  background-color: darkslateblue;
+  text-align: center;
+  border-bottom: solid black;
 }
 
- /* zach space */
- .container {
-    display: flex;
-    justify-content: space-between;
- }
+/* zach space */
+.container {
+  display: flex;
+  justify-content: space-between;
+}
 
 .row {
-    flex-direction: column;
-    background-color: gainsboro;
+  flex-direction: column;
+  background-color: gainsboro;
 }
 
 .visits-card-header {
-    background-color: gainsboro;
+  background-color: gainsboro;
 }
 
 .groups-card-header {
-    background-color: gainsboro;
+  background-color: gainsboro;
 }
 
 .column {
-    float: left;
-    height: 600px;
-    width: 30%;
-    padding: 0 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    text-align: center;
-    background-color: #f1f1f1;
+  float: left;
+  height: 600px;
+  width: 30%;
+  padding: 0 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
 }
 
 .middlewhere {
-    color: gold;
+  color: gold;
+  font-weight: bolder;
 }
 
+/* Hallie's space */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /* Hallie's space */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /* Jeff's space*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
+/* Jeff's space*/
 
 #map {
-    height: 400px;
-    /* The height is 400 pixels */
-    width: 800px;
-    /* The width is the width of the web page */
-  }
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 800px;
+  /* The width is the width of the web page */
+}
 
- .topnav {
-    background-color: grey;
-    text-align: end;
-    word-spacing: 5px;
-    height: 50px;
-    font-size: 25px;
+.topnav {
+  background-color: grey;
+  text-align: end;
+  word-spacing: 5px;
+  height: 50px;
+  font-size: 25px;
 }
