@@ -39,7 +39,7 @@ const getCenterLocation = async (requestedGroup) => {
     const centerLat = sumLat / allLats.length;
     const centerLong = sumLong / allLongs.length;
 
-    return { centerLat: centerLat, centerLong: centerLong };
+    return { latitude: centerLat, longitude: centerLong };
   }
 };
 
