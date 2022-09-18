@@ -13,7 +13,6 @@ const logout = async () => {
 
 async function goToProfile(){
     document.location.replace('/profile');
-    
 }
 
 async function goToMap() {
@@ -37,5 +36,5 @@ document.querySelector('#joinGroup').addEventListener('click',joinGroup);
 document.querySelector('#createGroup').addEventListener('click',createGroup);
 
 
-// TODO - this Links to the Map that is showin map.handle bars - not in the maps button in main.handlebars.
-document.querySelector('#map').addEventListener('click', goToMap);
+document.querySelector('#home').addEventListener('click', goToMap);
+document.querySelector('#mapBtn').addEventListener('click', goToMap);
