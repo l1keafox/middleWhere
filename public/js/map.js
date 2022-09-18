@@ -6,7 +6,6 @@
 // Initialize and add the map
 
 async function initMap() {
-
     // TODO :
     // WE need to pull Sser groupId and replace it in the reponse fetch.
     // so it'll be await fetch'/api/users/myGroupID'
