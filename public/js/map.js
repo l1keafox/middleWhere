@@ -11,8 +11,8 @@ async function initMap() {
     // so it'll be await fetch'/api/users/myGroupID'
     // We need to see if user has a groupID, if not, then do not init map,
     // and instead we show join/create group.
-
-
+  
+    
     
     let userGroupId = 1;
     const response = await fetch(`/api/groups/${userGroupId}`,{
@@ -31,21 +31,12 @@ async function initMap() {
     const allUsers = await fetch(`/api/groups/allUsers/${userGroupId}`,{
       method:'GET',
     });
-    let inGroup = await allUsers.json();
     const marker = new google.maps.Marker({
       position: centerOfMap,
       icon: image,
-
-  const allUsers = await fetch("/api/groups/allUsers/1", {
-    method: "GET",
-  });
-  let inGroup = await allUsers.json();
-  const marker = new google.maps.Marker({
-    position: centerOfMap,
-    icon: image,
-
-    map: map,
-  });
+      map: map,
+    });
+    let inGroup = await allUsers.json();
 
   for (let person of inGroup) {
     const personPos = {

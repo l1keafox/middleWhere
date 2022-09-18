@@ -1,5 +1,25 @@
 const router = require("express").Router();
 const User = require("../../models/User.js");
+
+// See ALL users
+router.get("/", (req, res) => {
+  // Get all books from the book table
+  User.findAll().then((userData) => {
+    res.json(userData);
+  });
+});
+
+// See ONE user
+router.get("/:id", (req, res) => {
+  User.findOne({
+    where: {
+      id: req.params.id,
+    },
+  }).then((userData) => {
+    res.json(userData);
+  });
+});
+
 // CREATE New User
 router.post("/", async (req, res) => {
   try {
@@ -36,7 +56,6 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    // This is ulgy ULGY needs to be fixed.
     const validPassword = loginUser.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -59,13 +78,28 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// TODO - create a router.get for /getCurrentGroupId or something like it. 
-
+// TODO - create a router.get for /getCurrentGroupId or something like it.
 
 // TODO - create a router.put to update user for current groupId.
+router.put("/:id", (req, res) => {
+  User.update(
+    {
+      groupId: req.body.groupId,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((updatedUser) => {
+      // Sends the updated user as a json response
+      res.json(updatedUser);
+    })
+    .catch((err) => res.json(err));
+});
 
 // TODO - create a router.put to leave group? Or should this be combined with the top with an option of 0/Null?
-
 
 router.get("/allGroups/:id", async (req, res) => {
   try {
