@@ -114,7 +114,25 @@ router.put("/:id", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-// TODO - create a router.put to leave group? Or should this be combined with the top with an option of 0/Null?
+//user LEAVING group -- req.body.groupId needs to be null
+router.put("/leaveGroup/:id", async (req, res) => {
+  try {
+    const deleteGroupData = User.update(
+      { groupId: req.body.groupId },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    //this should return empty if groupId is set to null
+    res.json(deleteGroupData);
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+});
 
 router.get("/allGroups/:id", async (req, res) => {
   try {
