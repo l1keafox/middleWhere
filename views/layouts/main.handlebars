@@ -14,8 +14,8 @@
 </head>
 
 <body>
-  <header class="bg-dark text-light text-center m-2">
-    <h1>From Somewhere to <span class="middlewhere">Middle-Where</span></h1>
+  <header class="bg-dark text-light text-center">
+    <h1>From Somewhere to <span class="text-warning">Middle-Where</span></h1>
   </header>
   
   <div class="topnav navbar bg-dark text-light container-fluid justify-content-end">
@@ -23,10 +23,10 @@
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" id="userGroupInput">
       </form>    
-        <button class="btn btn-outline-success"  id="joinGroup" type="submit">Join!</button>
-        <button class="btn btn-outline-success" id="createGroup">Create</button>
+        <button class="btn btn-outline-warning"  id="joinGroup" type="submit">Join!</button>
+        <button class="btn btn-outline-warning" id="createGroup">Create</button>
 
-    <a class="btn btn-outline-light me-2 active" type="button " href="" id="home">Home</a>
+    <a class="btn btn-outline-light me-2" type="button " href="" id="home">Home</a>
     
     <a href="" class="btn btn-outline-light" type="button" id="profile" >Profile</a>
     <a href="" class="btn btn-outline-light" type="button">Map</a>
@@ -44,6 +44,19 @@
 
       {{{body}}}
   </main>
+
+  <footer class="bg-dark text-light text-center">
+    <p class="border-bottom border-warning"> Middle-Where was created in collaboration:</p>
+    <ul class="footerul">
+      <li onclick="location.href='https://github.com/alverson98';"> Hannah Alverson </li>
+      <li onclick="location.href='https://github.com/ZacharyFeltman';">Zachary Feltman</li>
+      <li onclick="location.href='https://github.com/dylangriess';">Dylan Griess</li>
+      <li onclick="location.href='https://github.com/l1keafox';">Raymond Lewis</li>
+      <li onclick="location.href='https://github.com/halliemestas';">Hallie Mestas</li>
+      <li onclick="location.href='https://github.com/jeffbone95';">Jeff Willingham</li>
+    </ul>
+  </footer>
+
   <script src="./js/navBar.js"></script>
 
 </body>
