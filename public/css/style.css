@@ -2,12 +2,6 @@
   font-family: 'Shadows Into Light', cursive;
 }
 
-header {
-  background-color: darkslateblue;
-  text-align: center;
-  border-bottom: solid black;
-}
-
 .container {
   display: flex;
   justify-content: space-between;
