@@ -3,7 +3,6 @@ const router = require("express").Router();
 
 router.get("/", async (req, res) => {
     try {
-      console.log('get stuff?');
       res.render("profile", {
         loggedIn: req.session.loggedIn,
       });
