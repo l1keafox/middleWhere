@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const User = require("../../models/User.js");
+const Group = require("../../models/Group");
 
 // See ALL users
 router.get("/", (req, res) => {
-  // Get all books from the book table
   User.findAll().then((userData) => {
     res.json(userData);
   });
@@ -78,9 +78,24 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// TODO - create a router.get for /getCurrentGroupId or something like it.
+// GET current group id --> do we need any other info besides the group id?
+router.get("/currentGroup/:id", async (req, res) => {
+  try {
+    const currentGroupData = await User.findAll({
+      where: { id: req.params.id },
+      attributes: ["group_id"],
+    });
+    const currentGroup = currentGroupData.map((data) =>
+      data.get({ plain: true })
+    );
+    res.status(200).json(currentGroup);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-// TODO - create a router.put to update user for current groupId.
+//update user for current groupId.
 router.put("/:id", (req, res) => {
   User.update(
     {
@@ -99,7 +114,25 @@ router.put("/:id", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-// TODO - create a router.put to leave group? Or should this be combined with the top with an option of 0/Null?
+//user LEAVING group -- req.body.groupId needs to be null
+router.put("/leaveGroup/:id", async (req, res) => {
+  try {
+    const deleteGroupData = User.update(
+      { groupId: req.body.groupId },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    //this should return empty if groupId is set to null
+    res.json(deleteGroupData);
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+});
 
 router.get("/allGroups/:id", async (req, res) => {
   try {
@@ -107,7 +140,7 @@ router.get("/allGroups/:id", async (req, res) => {
       where: { id: req.params.id },
       attributes: ["id", "name"],
     });
-    const allGroups = groupData.get({ plain: true });
+    const allGroups = groupData.map((data) => data.get({ plain: true }));
     res.status(200).json(allGroups);
   } catch (err) {
     console.log(err);
