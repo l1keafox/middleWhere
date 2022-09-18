@@ -1,38 +1,45 @@
-{{!-- TODO - Clean up this add a container. --}}
+{{! TODO - Clean up this add a container. }}
 
-
-<div class="user-name login">
-  <div class="login-card">
-    <h2 class="page-title">Login</h2>
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="username-login">Username:</label>
-        <input class="form-input" type="text" id="username-log" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">Password:</label>
-        <input class="form-input" type="password" id="password-log" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Login</button>
-      </div>
-    </form>
+<div class="container">
+  <div class="description-card border border-2 p-3 m-3 col-md-8">
+    <div class="card-body">
+      <h2 class="card-title fs-1 fw-bold mb-3">About Us</h5>
+      <p class="card-text fs-4 lh-lg">Middle-Where is a web-based application designed to bring friends together using a calculated, centralized geolocation. The motivation behind this project is to streamline the process of deciding the best place to meet between multiple group members. Individuals can choose to be placed into groups with their friends or colleagues, and by providing their location details, Middle-Where determines a meeting spot based on the closest proximity between all group members.</p>
+    </div>
   </div>
-  <div class="login-card">
-    <h2 class="page-title">Signup</h2>
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="username-signup">Username:</label>
-        <input class="form-input" type="text" id="username-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">Password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Sign Up</button>
-      </div>
-    </form>
+  <div class="user-name login border border-2 p-3 m-3 col-md-4">
+    <div class="login-card">
+      <h2 class="page-title fs-1 fw-bold mb-3">Login</h2>
+      <form class="form login-form m-3">
+        <div class="form-group m-2 fs-5">
+          <label for="username-login">Username:</label>
+          <input class="form-input" type="text" id="username-log" />
+        </div>
+        <div class="form-group m-2 fs-5">
+          <label for="password-login">Password:</label>
+          <input class="form-input" type="password" id="password-log" />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary m-2" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+    <div class="login-card">
+      <h2 class="page-title fs-1 fw-bold mb-3">Signup</h2>
+      <form class="form signup-form m-3">
+        <div class="form-group m-2 fs-5">
+          <label for="username-signup">Username:</label>
+          <input class="form-input" type="text" id="username-signup" />
+        </div>
+        <div class="form-group m-2 fs-5">
+          <label for="password-signup">Password:</label>
+          <input class="form-input" type="password" id="password-signup" />
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary m-2" type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 
