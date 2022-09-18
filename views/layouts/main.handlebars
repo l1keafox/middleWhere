@@ -14,27 +14,30 @@
 </head>
 
 <body>
-  <header class="bg-dark text-light text-center">
-    <h1>From Somewhere to <span class="text-warning">Middle-Where</span></h1>
-  </header>
-  
-  <div class="topnav navbar bg-dark text-light container-fluid justify-content-end">
 
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" id="userGroupInput">
-      </form>    
-        <button class="btn btn-outline-warning"  id="joinGroup" type="submit">Join!</button>
-        <button class="btn btn-outline-warning" id="createGroup">Create</button>
-
-    <a class="btn btn-outline-light me-2" type="button " href="" id="home">Home</a>
+  <div class="jumbotron bg-dark text-light">
+    <header class="text-center bg-dark text-light ">
+      <h1>From Somewhere to <span class="text-warning fw-bold">Middle-Where</span></h1>
+    </header>
     
-    <a href="" class="btn btn-outline-light" type="button" id="profile" >Profile</a>
-    <a href="" class="btn btn-outline-light" type="button">Map</a>
-    {{#if loggedIn}}
-    <a href="" class="btn btn-outline-light" type="button" id="logout">Logout</a>
-    {{else}}
-    <a href="" class="btn btn-outline-light" type="button" >Login</a>
-    {{/if}}
+    <div class="container-fluid justify-content-endbg-dark text-light ">
+
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" id="userGroupInput">
+        </form>    
+          <button class="btn btn-outline-warning"  id="joinGroup" type="submit">Join!</button>
+          <button class="btn btn-outline-warning" id="createGroup">Create</button>
+
+      <a class="btn btn-outline-light me-2" type="button " href="" id="home">Home</a>
+      
+      <a href="" class="btn btn-outline-light" type="button" id="profile" >Profile</a>
+      <a href="" class="btn btn-outline-light" type="button">Map</a>
+      {{#if loggedIn}}
+      <a href="" class="btn btn-outline-light" type="button" id="logout">Logout</a>
+      {{else}}
+      <a href="" class="btn btn-outline-light" type="button" >Login</a>
+      {{/if}}
+    </div>
   </div>
 
   <main> 

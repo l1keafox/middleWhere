@@ -8,7 +8,6 @@ header {
   border-bottom: solid black;
 }
 
-/* zach space */
 .container {
   display: flex;
   justify-content: space-between;
