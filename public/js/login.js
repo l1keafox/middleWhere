@@ -7,30 +7,27 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector("#password-log").value.trim();
 
   if (userName && password) {
-    try{
-    const response = await fetch("/api/users/login", {
-      method: "POST",
-      body: JSON.stringify({ userName, password }),
-      headers: { "Content-Type": "application/json" },
-    });
+    try {
+      const response = await fetch("/api/users/login", {
+        method: "POST",
+        body: JSON.stringify({ userName, password }),
+        headers: { "Content-Type": "application/json" },
+      });
 
-    if (response.ok) {
-      document.location.replace("/");
-    } else {
-      alert("Login Failed");
+      if (response.ok) {
+        document.location.replace("/profile");
+      } else {
+        alert("Login Failed");
+      }
+    } catch (err) {
+      console.log(err);
     }
-  }catch(err){
-    console.log(err);
-  }
   }
 };
-
-
 
 async function signupFormHandler(event) {
   event.preventDefault();
 
-  
   const userName = document.querySelector("#username-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
   async function success(position) {
@@ -46,7 +43,6 @@ async function signupFormHandler(event) {
     });
     if (reponse.ok) {
       document.location.replace("/");
-      alert("User created! Please login");
     } else {
       console.log("404");
     }
@@ -55,6 +51,10 @@ async function signupFormHandler(event) {
   console.log("success");
   navigator.geolocation.getCurrentPosition(success, success);
 }
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+document
+  .querySelector(".login-form")
+  .addEventListener("submit", loginFormHandler);
 
-document.querySelector(".signup-form").addEventListener("submit", signupFormHandler);
+document
+  .querySelector(".signup-form")
+  .addEventListener("submit", signupFormHandler);
