@@ -23,22 +23,34 @@
     </div>
   
     <div class="topnav navbar bg-dark text-light container-fluid justify-content-end">
-      <div class="container-fluid justify-content-end bg-dark text-light ">
-
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" id="userGroupInput">
-          </form>    
-            <button class="btn btn-outline-warning"  id="joinGroup" type="submit">Join!</button>
-            <button class="btn btn-outline-warning" id="createGroup">Create</button>
-
-        <a class="btn btn-outline-light me-2" type="button " href="" id="home">Home</a>
-        
-        <a href="" class="btn btn-outline-light" type="button" id="profile" >Profile</a>
-        <a href="" class="btn btn-outline-light" type="button">Map</a>
+      <div class="container-fluid bg-dark text-light justify-content-start col ">
+        {{!-- NavBar only necessary for logged in users --}}
         {{#if loggedIn}}
-        <a href="" class="btn btn-outline-light" type="button" id="logout">Logout</a>
+        {{!-- Create and Join Group via form input --}}
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" id="userGroupInput" placeholder="Group ID">
+        </form>    
+        <button class="btn btn-outline-warning"  id="joinGroup" type="submit">
+          Join!
+        </button>
+        <button class="btn btn-outline-warning" id="createGroup">
+          Create
+        </button>
+      </div>
+
+      {{!-- Navigation Page --}}
+      <div class="container-fluid bg-dark text-light justify-content-end col">
+        <a class="btn btn-outline-light me-2" type="button " href="" id="home">
+          Home
+        </a>
+        <a href="" class="btn btn-outline-light" type="button" id="profile" >
+          Profile
+        </a>
+        <a href="" class="btn btn-outline-light" type="button" id="logout">
+          Logout
+        </a>
         {{else}}
-        <a href="" class="btn btn-outline-light" type="button" >Login</a>
+        <a href="" ></a>
         {{/if}}
       </div>
     </div>
