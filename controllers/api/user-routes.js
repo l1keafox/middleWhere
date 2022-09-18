@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require("../../models/User.js");
+const Group = require("../../models/Group");
 
 // See ALL users
 router.get("/", (req, res) => {
@@ -77,7 +78,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// GET current group(s) id
+// GET current group id --> do we need any other info besides the group id?
 router.get("/currentGroup/:id", async (req, res) => {
   try {
     const currentGroupData = await User.findAll({
@@ -121,7 +122,7 @@ router.get("/allGroups/:id", async (req, res) => {
       where: { id: req.params.id },
       attributes: ["id", "name"],
     });
-    const allGroups = groupData.get({ plain: true });
+    const allGroups = groupData.map((data) => data.get({ plain: true }));
     res.status(200).json(allGroups);
   } catch (err) {
     console.log(err);
