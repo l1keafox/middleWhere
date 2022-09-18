@@ -46,6 +46,7 @@ async function signupFormHandler(event) {
     });
     if (reponse.ok) {
       document.location.replace("/");
+      alert("User created! Please login");
     } else {
       console.log("404");
     }
