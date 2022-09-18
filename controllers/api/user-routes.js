@@ -3,7 +3,6 @@ const User = require("../../models/User.js");
 
 // See ALL users
 router.get("/", (req, res) => {
-  // Get all books from the book table
   User.findAll().then((userData) => {
     res.json(userData);
   });
@@ -78,9 +77,24 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// TODO - create a router.get for /getCurrentGroupId or something like it.
+// GET current group(s) id
+router.get("/currentGroup/:id", async (req, res) => {
+  try {
+    const currentGroupData = await User.findAll({
+      where: { id: req.params.id },
+      attributes: ["group_id"],
+    });
+    const currentGroup = currentGroupData.map((data) =>
+      data.get({ plain: true })
+    );
+    res.status(200).json(currentGroup);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-// TODO - create a router.put to update user for current groupId.
+//update user for current groupId.
 router.put("/:id", (req, res) => {
   User.update(
     {
