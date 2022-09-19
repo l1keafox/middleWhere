@@ -58,13 +58,36 @@ footer {
   flex-wrap: wrap;
 }
 
+#username-signup {
+  width: 100%
+}
 
-/* @media only screen and (max-width: 710px) {
-  .border {
+#password-signup {
+  width: 100%
+}
+
+#username-log {
+  width: 100%
+}
+
+#password-log {
+  width: 100%
+}
+
+/* .info-boxes {
+  flex-wrap: wrap;
+} */
+@media only screen and (max-width: 995px) {
+  .info-boxes {
     flex-wrap: wrap;
   }
-} */
-
+  #signUpLogIn {
+    width: 100%;
+  }
+  #descriptionCard {
+    width: 100%;
+  }
+}
 
 
 

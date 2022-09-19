@@ -29,6 +29,7 @@ async function initMap() {
   });
   const marker = new google.maps.Marker({
     position: centerOfMap,
+    animation: google.maps.Animation.DROP,
     icon: image,
     map: map,
   });
@@ -41,6 +42,7 @@ async function initMap() {
     };
     const marker = new google.maps.Marker({
       position: personPos,
+      animation: google.maps.Animation.DROP,
       map: map,
     });
   }
