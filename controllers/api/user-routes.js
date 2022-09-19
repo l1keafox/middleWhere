@@ -156,24 +156,24 @@ router.put("/:id", (req, res) => {
 //user LEAVING group -- req.body.groupId needs to be null
 //TODO - this isn't being used, but it shouldn't require an id, the
 // req.session.user.groupId is what should be set to null.
-// router.put("/leaveGroup/:id", async (req, res) => {
-//   try {
-//     const deleteGroupData = User.update(
-//       { groupId: req.body.groupId },
-//       {
-//         where: {
-//           id: req.params.id,
-//         },
-//       }
-//     );
+router.put("/leaveGroup/", async (req, res) => {
+  try {
+    const deleteGroupData = User.update(
+      { groupId: null },
+      {
+        where: {
+          id: req.session.user.id,
+        },
+      }
+    );
 
-//     //this should return empty if groupId is set to null
-//     res.json(deleteGroupData);
-//   } catch (err) {
-//     console.log(err);
-//     res.json(err);
-//   }
-// });
+    //this should return empty if groupId is set to null
+    res.json(deleteGroupData);
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
+});
 
 // Currently not being used.
 
