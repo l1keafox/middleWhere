@@ -49,6 +49,17 @@ async function createGroup() {
 }
 
 
+async function leaveGroup()
+{
+    event.preventDefault();
+    const response = await fetch(`/api/users/leaveGroup/`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+      });
+      console.log("Leave group");
+      document.location.assign('/profile');
+}
+
 // These are checking if the querySelector exists - cause they are hidden in the home/login page
 // Then adds event listener if it does exist - when in any screen than login.
 if(document.querySelector('#logout'))document.querySelector('#logout').addEventListener('click', logout);
@@ -61,3 +72,4 @@ if(document.querySelector('#createGroup'))document.querySelector('#createGroup')
 if(document.querySelector('#home'))document.querySelector('#home').addEventListener('click', goToMap);
 if(document.querySelector('#mapBtn'))document.querySelector('#mapBtn').addEventListener('click', goToMap);
 
+if(document.querySelector('#leaveGroup'))document.querySelector('#leaveGroup').addEventListener('click', leaveGroup);
