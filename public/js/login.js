@@ -42,7 +42,7 @@ async function signupFormHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
     if (reponse.ok) {
-      document.location.replace("/");
+      document.location.replace("/profile");
     } else {
       console.log("404");
     }

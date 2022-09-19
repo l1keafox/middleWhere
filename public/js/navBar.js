@@ -5,18 +5,22 @@ const logout = async () => {
     });
 
     if (response.ok) {
-        document.location.replace('/');
+        document.location.assign('/');
     } else {
         alert("Logout failed");
     }
 };
 
 async function goToProfile(){
-    document.location.replace('/profile');
+    console.log("profile");
+    event.preventDefault();
+    document.location.assign('/profile');
 }
 
 async function goToMap() {
-    document.location.replace('/');
+    console.log("map");
+    event.preventDefault();
+    document.location.assign('/');
 }
 
 async function joinGroup(){
@@ -29,12 +33,13 @@ async function createGroup(){
     console.log('create Group!',document.querySelector('#userGroupInput').value);
 }
 
-document.querySelector('#logout').addEventListener('click', logout);
+if(document.querySelector('#logout')){
+    document.querySelector('#logout').addEventListener('click', logout);
+}
+if(document.querySelector('#profile'))document.querySelector('#profile').addEventListener('click',goToProfile);
+if(document.querySelector('#joinGroup'))document.querySelector('#joinGroup').addEventListener('click',joinGroup);
+if(document.querySelector('#createGroup'))document.querySelector('#createGroup').addEventListener('click',createGroup);
 
-document.querySelector('#profile').addEventListener('click',goToProfile);
-document.querySelector('#joinGroup').addEventListener('click',joinGroup);
-document.querySelector('#createGroup').addEventListener('click',createGroup);
 
-
-document.querySelector('#home').addEventListener('click', goToMap);
-document.querySelector('#mapBtn').addEventListener('click', goToMap);
+if(document.querySelector('#home'))document.querySelector('#home').addEventListener('click', goToMap);
+if(document.querySelector('#mapBtn'))document.querySelector('#mapBtn').addEventListener('click', goToMap);
