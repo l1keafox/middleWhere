@@ -2,18 +2,23 @@ const router = require("express").Router();
 const User = require("../../models/User.js");
 const Group = require("../../models/Group");
 
-// See ALL users
-// not used so commented out.
-// router.get("/", (req, res) => {
-//   // This shouldn't be? Why would we ever use all the users? Also it shows password so this is a big nono.
-//   User.findAll().then((userData) => {
-//     res.json(userData);
-//   }); 
-//  });
+// GET users with matching usernames - used to check for existing user on sign up
+router.get("/allUsers/:userName", async (req, res) => {
+  try {
+    const userName = await User.findOne({
+      where: {
+        userName: req.params.userName,
+      },
+      attributes: ["userName"],
+    });
+    res.json(userName);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
-
- // This is used in navbar.js function create or so I thought, end the end this isn't being used.
- // Create group isn't here? it should be in group-routes.
+// This is used in navbar.js function create or so I thought, end the end this isn't being used.
+// Create group isn't here? it should be in group-routes.
 // router.put("/:newGroup",(req,res) => {
 //   console.log('Creating Group ',req.params.newGroup);
 //   Group.findOne({
@@ -101,7 +106,7 @@ router.post("/login", async (req, res) => {
         .json({ message: "Invalid login credentials. Please try again!" });
       return;
     }
-//    console.log(loginUser.groupId,"GROUP ID");
+    //    console.log(loginUser.groupId,"GROUP ID");
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.user = loginUser;
@@ -135,7 +140,13 @@ router.post("/login", async (req, res) => {
 //update user for current groupId.
 // this is currently called via navbar.js function joinGroup.
 router.put("/joinGroup/:groupName", async (req, res) => {
-  console.log("Updating user ID:",req.session.user.id,"too",  req.params.groupName, "Group needs to exist to join soo.");
+  console.log(
+    "Updating user ID:",
+    req.session.user.id,
+    "too",
+    req.params.groupName,
+    "Group needs to exist to join soo."
+  );
 
   // Here we need to find the group that matches req.params.gropuName
 
@@ -144,8 +155,8 @@ router.put("/joinGroup/:groupName", async (req, res) => {
       name: req.params.groupName,
     },
   });
-  console.log(userGroup,userGroup.dataValues.id);
-    let updatedUser = await  User.update(
+  console.log(userGroup, userGroup.dataValues.id);
+  let updatedUser = await User.update(
     {
       groupId: userGroup.dataValues.id,
     },
@@ -154,38 +165,32 @@ router.put("/joinGroup/:groupName", async (req, res) => {
         id: req.session.user.id,
       },
     }
-      );
-      // Sends the updated user as a json response
-//    res.json(updatedUser);
-    const loginUser = await User.findOne({
-      where: {
-        id: req.session.user.id,
-      },
-    });
+  );
+  // Sends the updated user as a json response
+  //    res.json(updatedUser);
+  const loginUser = await User.findOne({
+    where: {
+      id: req.session.user.id,
+    },
+  });
 
-    //this should return empty if groupId is set to null
-//    res.json(deleteGroupData);
-    req.session.save(() => {
-  //    req.session.loggedIn = true;
-      req.session.user = loginUser;
-      res
-        .status(200)
-        .json(updatedUser);
-    });    
-
-   
+  //this should return empty if groupId is set to null
+  //    res.json(deleteGroupData);
+  req.session.save(() => {
+    //    req.session.loggedIn = true;
+    req.session.user = loginUser;
+    res.status(200).json(updatedUser);
+  });
 });
-
- 
 
 //user LEAVING group -- req.body.groupId needs to be null
 //TODO - this isn't being used, but it shouldn't require an id, the
 // req.session.user.groupId is what should be set to null.
 router.put("/leaveGroup/", async (req, res) => {
   try {
-    if(req.session.user.groupId === null){
-      res.status(201).json({msg:"no group"});
-       return;
+    if (req.session.user.groupId === null) {
+      res.status(201).json({ msg: "no group" });
+      return;
     }
     const deleteGroupData = await User.update(
       { groupId: null },
@@ -195,8 +200,8 @@ router.put("/leaveGroup/", async (req, res) => {
         },
       }
     );
-    
-    console.log('here should be empty',deleteGroupData[0]);
+
+    console.log("here should be empty", deleteGroupData[0]);
     const loginUser = await User.findOne({
       where: {
         id: req.session.user.id,
@@ -204,14 +209,14 @@ router.put("/leaveGroup/", async (req, res) => {
     });
 
     //this should return empty if groupId is set to null
-//    res.json(deleteGroupData);
+    //    res.json(deleteGroupData);
     req.session.save(() => {
-  //    req.session.loggedIn = true;
+      //    req.session.loggedIn = true;
       req.session.user = loginUser;
       res
         .status(200)
         .json({ user: loginUser, message: "You are now logged in!" });
-    });    
+    });
   } catch (err) {
     console.log(err);
     res.json(err);
@@ -233,7 +238,6 @@ router.put("/leaveGroup/", async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
-
 
 // Logout User Called navbar.js at function logout.
 router.post("/logout", (req, res) => {
