@@ -12,13 +12,6 @@
   background-color: gainsboro;
 }
 
-.visits-card-header {
-  background-color: gainsboro;
-}
-
-.groups-card-header {
-  background-color: gainsboro;
-}
 
 .column {
   float: left;
@@ -29,10 +22,13 @@
   padding: 16px;
   text-align: center;
   background-color: #f1f1f1;
+  border: none;
 }
 
-.footerul {
+.footerul li {
   list-style-type: none;
+  display: inline;
+  cursor:pointer;
 }
 
 
