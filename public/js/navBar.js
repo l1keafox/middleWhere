@@ -42,17 +42,25 @@ async function joinGroup() {
 }
 
 async function createGroup() {
+  let userInput = document.querySelector("#userGroupInput").value;
+  if(userInput == null || userInput == '')
+  {
+  alert('Please input a value!');
+  return;
+  }
+
   const response = await fetch(`/api/groups/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      name: document.querySelector("#userGroupInput").value,
+      name: userInput,
     }),
   });
   if (response.ok) {
     console.log("create Group!", response.body, "This should be the group!");
     document.location.assign("/");
-  } else {
+  }
+  else {
     alert("Failed to create group.");
   }
 }
@@ -63,12 +71,20 @@ async function leaveGroup() {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
   });
-  if (response.ok) {
+  if(response.status === 201)
+  {
+    alert("No group");
+  }
+  else if (response.ok) 
+  {
     console.log("Leave group");
     document.location.assign("/profile");
-  } else {
+  } 
+  else 
+  {
     alert("Unable to leave group.");
   }
+  console.log( response.status ,"Hello" );
 }
 
 // These are checking if the querySelector exists - cause they are hidden in the home/login page
