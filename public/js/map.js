@@ -1,7 +1,3 @@
-// TODO - Let's display group side column
-
-// TODO - lets display group name somewhere?
-
 
 // Initialize and add the map
 
@@ -10,7 +6,6 @@ async function initMap() {
       method:'GET',
 
     });
-    console.log(response);
     let json = await response.json();
 
     if(!json.latitude){
@@ -19,6 +14,9 @@ async function initMap() {
       console.log('DISPLAY SOMETHING ABOUT CREATE GROUP');
       return;
     }
+
+    
+    
 
     const centerOfMap = { lat: parseFloat( json.latitude ), lng: parseFloat( json.longitude ) };
     const image =

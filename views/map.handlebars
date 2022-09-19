@@ -1,8 +1,16 @@
 <div class="container justify-content-center ">
     <div class ="row">
-    <dir id="groupList" class = "col-2"> </dir>
-    <div id="map" class = "col-6"></div>
-    <div id="business" class = "col-4"></div>
+      <dir id="groupList" class = "col-2">
+
+  {{#each members as |person|}}
+    <div class=''>
+        {{person.userName}},{{person.longitude}},{{person.latitude}}
+    </div>
+  {{/each}}
+
+
+      </dir>
+      <div id="map" class = "col-6"></div>
     </div>
 </div>
 <script src="./js/map.js"></script>

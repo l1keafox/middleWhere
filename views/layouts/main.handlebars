@@ -27,12 +27,12 @@
         {{!-- NavBar only necessary for logged in users --}}
         {{#if loggedIn}}
         {{!-- Create and Join Group via form input --}}
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" id="userGroupInput" placeholder="Group ID">
-        </form>    
         <button class="btn btn-outline-warning"  id="joinGroup" type="submit">
           Join Group
         </button>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" id="userGroupInput" placeholder="Group Name">
+        </form>    
         <button class="btn btn-outline-warning" id="createGroup">
           Create Group
         </button>
@@ -56,6 +56,11 @@
         <a href="" ></a>
         {{/if}}
       </div>
+    </div>
+    <div class="topnav navbar bg-dark text-light container-fluid justify-content-end">
+      {{!-- Just placing this here for now --}}
+      <h3>Group Name:{{groupName}}</h3>
+      <h3>User Name:{{userInfo.userName}}</h3>
     </div>
   </div>
 

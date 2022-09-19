@@ -10,7 +10,6 @@ router.post("/", (req, res) => {
   })
     .then((newGroup) => {
 
-      console.log("created",newGroup.dataValues.id);
       User.update(
         {
           groupId: newGroup.dataValues.id,
@@ -27,8 +26,6 @@ router.post("/", (req, res) => {
             .status(200)
             .json(newGroup);
         });
-  
-//        res.json(newGroup);
       });
 
       
