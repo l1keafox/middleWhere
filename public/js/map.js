@@ -10,6 +10,7 @@ async function initMap() {
     console.log("NO GROUP!");
     // TO DO display something about create group
     console.log("DISPLAY SOMETHING ABOUT CREATE GROUP");
+    
     return;
   }
 
