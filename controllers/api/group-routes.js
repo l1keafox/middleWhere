@@ -21,7 +21,14 @@ router.post("/", (req, res) => {
           },
         }
       ).then(()=>{
-        res.json(newGroup);
+        req.session.save(() => {
+          req.session.user.groupId = newGroup.dataValues.id;
+          res
+            .status(200)
+            .json(newGroup);
+        });
+  
+//        res.json(newGroup);
       });
 
       
@@ -33,10 +40,10 @@ router.post("/", (req, res) => {
 });
 
 // GET group data to show all the users in the group
-router.get("/allUsers/:id", async (req, res) => {
+router.get("/allUsers/", async (req, res) => {
   try {
     const userData = await User.findAll({
-      where: { groupId: req.params.id },
+      where: { groupId: req.session.user.groupId },
       attributes: { exclude: ["password", "createdAt", "updatedAt"] },
     });
     const allUsers = userData.map((data) => data.get({ plain: true }));
@@ -54,7 +61,14 @@ router.get("/", async (req, res) => {
     res.redirect("/login");
   } else {
     //function that calculates center location
-    console.log(req.session.user,"getting groupId");
+    console.log(req.session.user,"getting groupId",req.session.user.groupId === undefined);
+    if(req.session.user.groupId === undefined){
+      // TODO - need something better than this.
+      console.log('return');
+      res.status(200).json({});
+      return;
+    }
+    console.log(req.session.user.groupId,"No group ID?");
     let results = await centerLocation(req.session.user.groupId);
 
     if (results === null) {

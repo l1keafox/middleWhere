@@ -27,7 +27,12 @@ router.put("/:newGroup",(req,res) => {
         },
       }
     ).then(()=>{
-      res.status(200);
+      req.session.save(() => {
+        req.session.user.groupId = group.id;
+        res
+          .status(200)
+          .json({ message: "You are now logged in!" });
+      });
     });
 
   });
