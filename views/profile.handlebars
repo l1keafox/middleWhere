@@ -5,27 +5,32 @@
 
 {{! This is rendered via controller/profile-routes.js, information is passed via object in render, this should have User data in the form of "user" 
 No logic created for this file, if you want functionality for buttons ect.ect. you will want o create public/js/profile.js}}
-<div class="container justify-content-center">
+<div class="container">
   <div class="column user-card-header m-3 col-3">
-    <h1>User Info</h1>
+    <h1 class="justify-content-center">User Info</h1>
     {{user.userName}}
   </div>
   <div class="card user-card-info">
   </div>
   <div class="column visits-card-header m-3 col-3">
-    <h1 class="recently-visited-head">Recently Visited</h1>
+    <h1 class="recently-visited-head justify-content-center">Recently Visited</h1>
+    <br />
     <div>
-      <h3 class="coming-soon-head">Feature Coming Soon!</h3>
+      <h4 class="coming-soon-head">Feature Coming Soon!</h4>
+      <br />
       <p class="will-include">Recently Visited Locations Will Include:</p>
-      <ul class="coming-soon-ul"><li class="coming-soon-li">A list of your recent meet up locations</li>
+      <ul class="coming-soon-ul list-unstyled">
+        <li class="coming-soon-li">
+          A list of your recent meet up locations</li>
         <li class="coming-soon-li">Your favorite locations</li>
-        <li class="coming-soon-li">And more!</li></ul>
+        <li class="coming-soon-li">And more!</li>
+      </ul>
     </div>
   </div>
   <div class="card recently-visited-card">
   </div>
   <div class="column groups-card-header m-3 col-3">
-    <h1>Your Groups</h1>
+    <h1 class="justify-content-center">Your Groups</h1>
     {{#if noGroup}}
       <p>You are not currently in a group. Join one today!</p>
     {{/if}}
