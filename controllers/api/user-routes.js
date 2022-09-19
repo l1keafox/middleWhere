@@ -38,7 +38,8 @@ router.put("/:newGroup",(req,res) => {
 
   });
 });
-// See ONE user
+
+// See ONE user, but when do we ever see 1 user?
 router.get("/:id", (req, res) => {
   User.findOne({
     where: {
@@ -109,21 +110,21 @@ router.post("/login", async (req, res) => {
 });
 
 // GET current group id --> do we need any other info besides the group id?
-router.get("/currentGroup/:id", async (req, res) => {
-  try {
-    const currentGroupData = await User.findAll({
-      where: { id: req.params.id },
-      attributes: ["group_id"],
-    });
-    const currentGroup = currentGroupData.map((data) =>
-      data.get({ plain: true })
-    );
-    res.status(200).json(currentGroup);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+// router.get("/currentGroup/:id", async (req, res) => {
+//   try {
+//     const currentGroupData = await User.findAll({
+//       where: { id: req.params.id },
+//       attributes: ["group_id"],
+//     });
+//     const currentGroup = currentGroupData.map((data) =>
+//       data.get({ plain: true })
+//     );
+//     res.status(200).json(currentGroup);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 //update user for current groupId.
 router.put("/:id", (req, res) => {

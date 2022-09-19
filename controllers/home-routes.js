@@ -27,6 +27,7 @@ router.get("/", async (req, res) => {
         res.render("map", {
           members:dishes,
           groupName:currentUserGroup? currentUserGroup.dataValues.name : null,
+          userInfo:req.session.user,
           loggedIn: req.session.loggedIn,
         });
       } else {
