@@ -32,15 +32,21 @@
 }
 
 .userName {
-  background-color: black;
+  color: goldenrod;
+  font-weight: bolder;
+  text-align: center;
 }
 
 #latLong {
-  background-color: black;
+ color: goldenrod;
+ text-align: center;
 }
 
 .border {
-  width: 150px;
+  width: 200%;
+  height: 100%;
+  background-color: black;
+  padding-top: 25px;
 }
 
 
