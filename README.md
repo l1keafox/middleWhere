@@ -19,7 +19,7 @@ An website that will help people find the middle location to meet up.
 
 - <a href='https://limitless-temple-38712.herokuapp.com/'  target="_blank"> Click here for deployment </a>
 
-  ![Website](readme.PNG)
+  ![Website](/public/assets/readme.PNG)
 
 ## Installation
 
