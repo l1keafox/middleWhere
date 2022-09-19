@@ -7,16 +7,26 @@ router.get("/", async (req, res) => {
       // If there is an session we will render map 
       if(req.session && req.session.loggedIn){
         // Here we should make an api/group/id# request to grab info for the map.
-        let allGroups;
         //
-       let currentUserGroup = await Group.findOne({
-          where: {
-            id: req.session.user.groupId,
-          },
-        });
+
+        
+        let currentUserGroup;
+        if(req.session.user.groupId){
+          currentUserGroup = await Group.findOne({
+            where: {
+              id: req.session.user.groupId,
+            },
+          });
+          }
+        // let allGroups = await User.findAll({
+        //   where:{
+        //     groupId: req.session.user.groupId
+        //   },
+        // });
+        // console.log(allGroups);
         res.render("map", {
-          allGroups,
-          groupName:currentUserGroup.dataValues.name,
+//          allGroups,
+          groupName:currentUserGroup? currentUserGroup.dataValues.name : null,
           loggedIn: req.session.loggedIn,
         });
       } else {
