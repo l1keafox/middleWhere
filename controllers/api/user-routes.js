@@ -3,15 +3,17 @@ const User = require("../../models/User.js");
 const Group = require("../../models/Group");
 
 // See ALL users
-router.get("/", (req, res) => {
-  // This shouldn't be? Why would we ever use all the users? Also it shows password so this is a big nono.
-  User.findAll().then((userData) => {
-    res.json(userData);
-  }); 
- });
+// not used so commented out.
+// router.get("/", (req, res) => {
+//   // This shouldn't be? Why would we ever use all the users? Also it shows password so this is a big nono.
+//   User.findAll().then((userData) => {
+//     res.json(userData);
+//   }); 
+//  });
 
 
- // This is used in navbar.js function create
+ // This is used in navbar.js function create or so I thought, end the end this isn't being used.
+ // Create group isn't here? it should be in group-routes.
 // router.put("/:newGroup",(req,res) => {
 //   console.log('Creating Group ',req.params.newGroup);
 //   Group.findOne({
@@ -42,15 +44,16 @@ router.get("/", (req, res) => {
 // });
 
 // See ONE user, but when do we ever see 1 user?
-router.get("/:id", (req, res) => {
-  User.findOne({
-    where: {
-      id: req.params.id,
-    },
-  }).then((userData) => {
-    res.json(userData);
-  });
-});
+// Currently not in use, nor do I see an use for this.
+// router.get("/:id", (req, res) => {
+//   User.findOne({
+//     where: {
+//       id: req.params.id,
+//     },
+//   }).then((userData) => {
+//     res.json(userData);
+//   });
+// });
 
 // CREATE New User
 // Currently used in login.js signupFormHandler
@@ -153,39 +156,40 @@ router.put("/:id", (req, res) => {
 //user LEAVING group -- req.body.groupId needs to be null
 //TODO - this isn't being used, but it shouldn't require an id, the
 // req.session.user.groupId is what should be set to null.
-router.put("/leaveGroup/:id", async (req, res) => {
-  try {
-    const deleteGroupData = User.update(
-      { groupId: req.body.groupId },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    );
+// router.put("/leaveGroup/:id", async (req, res) => {
+//   try {
+//     const deleteGroupData = User.update(
+//       { groupId: req.body.groupId },
+//       {
+//         where: {
+//           id: req.params.id,
+//         },
+//       }
+//     );
 
-    //this should return empty if groupId is set to null
-    res.json(deleteGroupData);
-  } catch (err) {
-    console.log(err);
-    res.json(err);
-  }
-});
+//     //this should return empty if groupId is set to null
+//     res.json(deleteGroupData);
+//   } catch (err) {
+//     console.log(err);
+//     res.json(err);
+//   }
+// });
 
 // Currently not being used.
-router.get("/allGroups/:id", async (req, res) => {
-  try {
-    const groupData = await Group.findAll({
-      where: { id: req.params.id },
-      attributes: ["id", "name"],
-    });
-    const allGroups = groupData.map((data) => data.get({ plain: true }));
-    res.status(200).json(allGroups);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+
+// router.get("/allGroups/:id", async (req, res) => {
+//   try {
+//     const groupData = await Group.findAll({
+//       where: { id: req.params.id },
+//       attributes: ["id", "name"],
+//     });
+//     const allGroups = groupData.map((data) => data.get({ plain: true }));
+//     res.status(200).json(allGroups);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 
 // Logout User Called navbar.js at function logout.
