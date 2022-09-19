@@ -19,6 +19,7 @@ router.get("/", async (req, res) => {
 
       //getting all user groups
       let allUserGroups; // this will hold 
+      let noGroup;
       if (req.session.user.groupId) {
         let allCurUserNGroup = await Group.findAll({
           where: {
@@ -28,6 +29,7 @@ router.get("/", async (req, res) => {
         allUserGroups = allCurUserNGroup.map((group) =>
           group.get({ plain: true })
         );
+        noGroup = false;
       }
 
       let allMems;
@@ -45,6 +47,7 @@ router.get("/", async (req, res) => {
       let noGroupMessage;
       if (req.session.user.groupId === null) {
         noGroupMessage = "You currently have no groups.";
+        noGroup = true;
       }
 
 
@@ -56,6 +59,7 @@ router.get("/", async (req, res) => {
         groupName: currentUserGroup ? currentUserGroup.dataValues.name : null,
         allUserGroups,
         noGroupMessage,
+        noGroup,
         userInfo: req.session.user,
         loggedIn: req.session.loggedIn,
       });
