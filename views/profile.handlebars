@@ -1,27 +1,27 @@
- {{!-- TODO - fill this information out or at least show profile name/user acct. 
+{{! TODO - fill this information out or at least show profile name/user acct. 
         TODO - also finish out the partials that were referenced here.
         
- --}}
+ }}
 
-{{!-- This is rendered via controller/profile-routes.js, information is passed via object in render, this should have User data in the form of "user" 
-No logic created for this file, if you want functionality for buttons ect.ect. you will want o create public/js/profile.js--}}
-<div class="container">
-    <div class="column user-card-header col-3" >
-        <h1>User Info</h1>
-    </div>
-        <div class="card user-card-info">
-            {{user_info}}
-        </div>
-    <div class="column visits-card-header col-3">
-        <h1>Recently Visited Locations</h1>
-    </div>
-        <div class="card recently-visited-card">
-            {{recent_visits}}
-        </div>
-    <div class="column groups-card-header col-3">
-        <h1>Your Groups</h1>
-    </div>
-        <div class="card user-groups-card>">
-            {{user_groups}}
-        </div>
+{{! This is rendered via controller/profile-routes.js, information is passed via object in render, this should have User data in the form of "user" 
+No logic created for this file, if you want functionality for buttons ect.ect. you will want o create public/js/profile.js}}
+<div class="container justify-content-center">
+  <div class="column user-card-header m-5 col-3">
+    <h1>User Info</h1>
+  </div>
+  <div class="card user-card-info">
+    {{user_info}}
+  </div>
+  <div class="column visits-card-header m-5 col-3">
+    <h1>Recently Visited</h1>
+  </div>
+  <div class="card recently-visited-card">
+    {{recent_visits}}
+  </div>
+  <div class="column groups-card-header m-5 col-3">
+    <h1>Your Groups</h1>
+  </div>
+  <div class="card user-groups-card">
+    {{user_groups}}
+  </div>
 </div>

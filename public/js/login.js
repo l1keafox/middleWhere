@@ -41,10 +41,9 @@ async function signupFormHandler(event) {
       }),
       headers: { "Content-Type": "application/json" },
     });
-    
-    if (response.ok) {
-      document.location.replace("/");
 
+    if (response.ok) {
+      document.location.replace("/profile");
     } else {
       // TODO - create alerts for bad login.
       console.log("404");
