@@ -20,6 +20,9 @@ async function initMap() {
       return;
     }
 
+    
+    
+
     const centerOfMap = { lat: parseFloat( json.latitude ), lng: parseFloat( json.longitude ) };
     const image =
     "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";

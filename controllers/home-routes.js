@@ -1,5 +1,6 @@
 //routes for home page
 const router = require("express").Router();
+const { Group, User } = require("../models");
 router.get("/", async (req, res) => {
     try {
       // This is where we determeine what page to render for the user.
@@ -7,8 +8,15 @@ router.get("/", async (req, res) => {
       if(req.session && req.session.loggedIn){
         // Here we should make an api/group/id# request to grab info for the map.
         let allGroups;
+        //
+       let currentUserGroup = await Group.findOne({
+          where: {
+            id: req.session.user.groupId,
+          },
+        });
         res.render("map", {
           allGroups,
+          groupName:currentUserGroup.dataValues.name,
           loggedIn: req.session.loggedIn,
         });
       } else {

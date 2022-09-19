@@ -4,6 +4,7 @@ const Group = require("../../models/Group");
 
 // See ALL users
 router.get("/", (req, res) => {
+  // This shouldn't be? Why would we ever use all the users?
   User.findAll().then((userData) => {
     res.json(userData);
   }); 
@@ -31,7 +32,7 @@ router.put("/:newGroup",(req,res) => {
         req.session.user.groupId = group.id;
         res
           .status(200)
-          .json({ message: "You are now logged in!" });
+          .json(Group);
       });
     });
 
