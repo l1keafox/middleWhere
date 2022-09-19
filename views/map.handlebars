@@ -1,21 +1,29 @@
-<div class="container justify-content-center ">
-    <div class ="row">
-      <dir id="groupList" class = "col-2">
+<div class="container justify-content-center">
+  <div class="row">
+    <div id="groupList" class="col-2">
+      {{#if noGroup}}
+        <p> {{noGroupMessage}} </p>
+      {{else}}
+        <ul>{{#each allUserGroups as |group|}}
+            <li>{{group.name}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
+      <div>
+        {{#each members as |person|}}
+          <div class="">
+            {{person.userName}},{{person.longitude}},{{person.latitude}}
+          </div>
+        {{/each}}
+      </div>
 
-  {{#each members as |person|}}
-    <div class=''>
-        {{person.userName}},{{person.longitude}},{{person.latitude}}
     </div>
-  {{/each}}
-
-
-      </dir>
-      <div id="map" class = "col-6"></div>
-    </div>
+    <div id="map" class="col-6"></div>
+  </div>
 </div>
 <script src="./js/map.js"></script>
 
-  <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOxXYVOWPzgQcdB8Zc8KTR-P92C8A-K2Y&callback=initMap&v=weekly"
-      defer
-    ></script>  
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOxXYVOWPzgQcdB8Zc8KTR-P92C8A-K2Y&callback=initMap&v=weekly"
+  defer
+></script>
