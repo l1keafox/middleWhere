@@ -144,8 +144,8 @@ router.put("/joinGroup/:groupName", async (req, res) => {
       name: req.params.groupName,
     },
   });
-
-  User.update(
+  console.log(userGroup,userGroup.dataValues.id);
+    let updatedUser = await  User.update(
     {
       groupId: userGroup.dataValues.id,
     },
@@ -154,20 +154,36 @@ router.put("/joinGroup/:groupName", async (req, res) => {
         id: req.session.user.id,
       },
     }
-  )
-    .then((updatedUser) => {
+      );
       // Sends the updated user as a json response
-      res.json(updatedUser);
-    })
-    .catch((err) => res.json(err));
+//    res.json(updatedUser);
+    const loginUser = await User.findOne({
+      where: {
+        id: req.session.user.id,
+      },
+    });
+
+    //this should return empty if groupId is set to null
+//    res.json(deleteGroupData);
+    req.session.save(() => {
+  //    req.session.loggedIn = true;
+      req.session.user = loginUser;
+      res
+        .status(200)
+        .json(updatedUser);
+    });    
+
+   
 });
+
+ 
 
 //user LEAVING group -- req.body.groupId needs to be null
 //TODO - this isn't being used, but it shouldn't require an id, the
 // req.session.user.groupId is what should be set to null.
 router.put("/leaveGroup/", async (req, res) => {
   try {
-    const deleteGroupData = User.update(
+    const deleteGroupData = await User.update(
       { groupId: null },
       {
         where: {
@@ -175,11 +191,23 @@ router.put("/leaveGroup/", async (req, res) => {
         },
       }
     );
-
-    console.log('here should be empty',deleteGroupData);
+    
+    console.log('here should be empty',deleteGroupData[0]);
+    const loginUser = await User.findOne({
+      where: {
+        id: req.session.user.id,
+      },
+    });
 
     //this should return empty if groupId is set to null
-    res.json(deleteGroupData);
+//    res.json(deleteGroupData);
+    req.session.save(() => {
+  //    req.session.loggedIn = true;
+      req.session.user = loginUser;
+      res
+        .status(200)
+        .json({ user: loginUser, message: "You are now logged in!" });
+    });    
   } catch (err) {
     console.log(err);
     res.json(err);
