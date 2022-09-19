@@ -66,7 +66,7 @@ No test yet created.
 
 <a href='https://github.com/ZacharyFeltman'>Github: Zachary Feltman</a>
 
-<a href="mailto: raymond.ed.lewis@gmail.com">Email: Jeff Willingham@gmail.com</a>
+<a href="mailto: jeffbone95.com">Email: jeffbone95@gmail.com</a>
 
 <a href='https://github.com/jeffbone95'>Github: Jeff Willingham</a>
 

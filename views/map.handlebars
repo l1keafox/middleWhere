@@ -1,28 +1,30 @@
-{{!-- This is being rendered via controller/home-routes, home-routes if logged in will show maps, otherwise it will show login. 
+{{! This is being rendered via controller/home-routes, home-routes if logged in will show maps, otherwise it will show login. 
 home-routes will pass a lot of information via object to this handle bar to render. 
-Logic for this is handle in public/js/map.js --}}
+Logic for this is handle in public/js/map.js }}
 
 <div class="container justify-content-center">
-    <div id="groupList" class="col">
-      <h5> Group History </h5>
-      {{#if noGroup}}
-        <p> {{noGroupMessage}} </p>
-      {{else}}
-        <ul>{{#each allUserGroups as |group|}}
-            <li>{{group.name}}</li>
-          {{/each}}
-        </ul>
-      {{/if}}
-    </div>
-    <div id="map" class="col-6"></div>
-    <div class="col">
-      <h5> Users in {{groupName}} </h5>
-        {{#each members as |person|}}
-          <div class="border border-warning userItems">
-            {{person.userName}}, {{person.longitude}}, {{person.latitude}}
-          </div>
+  <div id="groupList" class="col m-3">
+    <h5> Group History </h5>
+    {{#if noGroup}}
+      <p> {{noGroupMessage}} </p>
+    {{else}}
+      <ul>{{#each allUserGroups as |group|}}
+          <li class="m-1">{{group.name}}</li>
         {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+  <div id="map" class="col-6 m-3"></div>
+  <div class="col m-3">
+    <h5> Users in {{groupName}} </h5>
+    {{#each members as |person|}}
+      <div class="border border-warning userItems">
+        {{person.userName}},
+        {{person.longitude}},
+        {{person.latitude}}
       </div>
+    {{/each}}
+  </div>
 </div>
 <script src="./js/map.js"></script>
 
