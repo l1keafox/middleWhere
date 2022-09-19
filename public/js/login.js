@@ -41,7 +41,7 @@ async function signupFormHandler(event) {
       }),
       headers: { "Content-Type": "application/json" },
     });
-    console.log(response);
+    console.log(reponse);
     if (reponse.ok) {
       //document.location.replace("/");
     } else {
