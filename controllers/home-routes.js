@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
         // Here we should make an api/group/id# request to grab info for the map.
         //
 
-        
+
         let currentUserGroup;
         if(req.session.user.groupId){
           currentUserGroup = await Group.findOne({
@@ -18,14 +18,15 @@ router.get("/", async (req, res) => {
             },
           });
           }
-        // let allGroups = await User.findAll({
-        //   where:{
-        //     groupId: req.session.user.groupId
-        //   },
-        // });
-        // console.log(allGroups);
+        let allGroups = await User.findAll({
+          where:{
+            groupId: req.session.user.groupId
+          },
+        });
+        const dishes = allGroups.map((dish) => dish.get({ plain: true }));
+        console.log(dishes);
         res.render("map", {
-//          allGroups,
+          members:dishes,
           groupName:currentUserGroup? currentUserGroup.dataValues.name : null,
           loggedIn: req.session.loggedIn,
         });
