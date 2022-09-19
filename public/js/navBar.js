@@ -25,6 +25,8 @@ async function goToMap() {
 
 async function joinGroup(){
     //TODO - use route /api/users/NOTYETCREATED to join a party
+
+    await fetch('/api/users/')
     console.log("Join Group!",document.querySelector('#userGroupInput').value);
 }
 
