@@ -48,13 +48,14 @@ router.get("/allUsers/:id", async (req, res) => {
 });
 
 // getting group center location data
-router.get("/:id", async (req, res) => {
+router.get("/", async (req, res) => {
   // Redirect the user to the login page if not logged in
   if (!req.session.loggedIn) {
     res.redirect("/login");
   } else {
     //function that calculates center location
-    let results = await centerLocation(req.params.id);
+    console.log(req.session.user,"getting groupId");
+    let results = await centerLocation(req.session.user.groupId);
 
     if (results === null) {
       res.status(500).json(err);
