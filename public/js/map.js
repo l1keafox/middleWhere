@@ -14,8 +14,7 @@ async function initMap() {
   
     
     
-    let userGroupId = 1;
-    const response = await fetch(`/api/groups/${userGroupId}`,{
+    const response = await fetch(`/api/groups/`,{
       method:'GET',
     });
     let json = await response.json();
@@ -28,7 +27,7 @@ async function initMap() {
       center: centerOfMap,
     });
     
-    const allUsers = await fetch(`/api/groups/allUsers/${userGroupId}`,{
+    const allUsers = await fetch(`/api/groups/allUsers/`,{
       method:'GET',
     });
     const marker = new google.maps.Marker({

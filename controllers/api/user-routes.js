@@ -88,11 +88,10 @@ router.post("/login", async (req, res) => {
         .json({ message: "Invalid login credentials. Please try again!" });
       return;
     }
-
+    console.log(loginUser.groupId,"GROPU ID");
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.user = loginUser;
-
       res
         .status(200)
         .json({ user: loginUser, message: "You are now logged in!" });
