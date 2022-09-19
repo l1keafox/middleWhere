@@ -48,8 +48,12 @@
   background-color: black;
   padding-top: 25px;
 }
-@media only screen and (max-width: 600px) { 
-  .topnav  
+@media only screen and (max-width: 1024px) { 
+  .navbar { 
+    display:flex; 
+    justify-content: center; 
+
+  }
   
 
 
