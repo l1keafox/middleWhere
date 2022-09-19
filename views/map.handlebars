@@ -8,7 +8,7 @@ Logic for this is handle in public/js/map.js }}
       {{/if}}
     </div>
 
-<div class="container justify-content-center">
+<div class="container justify-content-center userInGroup">
   {{!-- Ice box! --}}
     {{!-- <div id="groupList" class="col m-2">
       <h5> Group History </h5>
@@ -21,11 +21,11 @@ Logic for this is handle in public/js/map.js }}
         </ul>
       {{/if}}
     </div> --}}
-  <div id="map" class="col-6 m-3"></div>
-  <div class="col m-3">
+  <div id="map" class="groupUser col-6 m-3"></div>
+  <div class="col m-3 group-display">
     <h5> Users in {{groupName}} </h5>
     {{#each members as |person|}}
-      <div class="border border-warning userItems">
+      <div class="border border-warning userItems flex-wrap wrap">
         <div class="userName">
           {{person.userName}}
         </div>
