@@ -7,8 +7,6 @@ router.get("/", async (req, res) => {
     res.render("profile", {
       user: req.session.user, // pasing user data for handlebars profile
       loggedIn: req.session.loggedIn,
-      allUserGroups,
-      noGroup,
     });
   } catch (err) {
     console.log(err);

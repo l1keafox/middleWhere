@@ -54,6 +54,7 @@ router.get("/", async (req, res) => {
       // Here is the render that will use map.handlebars + main.handlebars to return an html.
       // Object is passed with various values that can be used in the handlebars
       // what is changed in this object must be changed in the handlebars.
+      console.log('new render');
       res.render("map", {
         members: allMems ? allMems : null,
         groupName: currentUserGroup ? currentUserGroup.dataValues.name : null,

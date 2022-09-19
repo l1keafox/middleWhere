@@ -62,14 +62,13 @@ router.get("/", async (req, res) => {
     res.redirect("/login");
   } else {
     //function that calculates center location
-    console.log(req.session.user,"getting groupId",req.session.user.groupId === undefined);
+    console.log('router.get in group routes;',req.session.user,"getting groupId",req.session.user.groupId === undefined);
     if(req.session.user.groupId === undefined){
       // TODO - need something better than this, we can return just the user lat/long to start.
       console.log('return');
       res.status(200).json({});
       return;
     }
-    console.log(req.session.user.groupId,"No group ID?");
     let results = await centerLocation(req.session.user.groupId);
 
     if (results === null) {
