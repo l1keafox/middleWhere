@@ -40,14 +40,10 @@
 #latLong {
  color: goldenrod;
  text-align: center;
- padding-top: 25px;
 }
 
 .userGroupColumn {
-  width: 115%;
-  height: 200px;
   background-color: black;
-  padding-top: 25px;
 }
 
 footer {
