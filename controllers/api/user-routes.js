@@ -134,11 +134,20 @@ router.post("/login", async (req, res) => {
 
 //update user for current groupId.
 // this is currently called via navbar.js function joinGroup.
-router.put("/joinGroup/:id", (req, res) => {
-  console.log("Updating user ID:",req.session.user.id,"too",  req.params.id, "Group needs to exist to join soo.");
+router.put("/joinGroup/:groupName", async (req, res) => {
+  console.log("Updating user ID:",req.session.user.id,"too",  req.params.groupName, "Group needs to exist to join soo.");
+
+  // Here we need to find the group that matches req.params.gropuName
+
+  const userGroup = await Group.findOne({
+    where: {
+      name: req.params.groupName,
+    },
+  });
+
   User.update(
     {
-      groupId: req.params.id,
+      groupId: userGroup.dataValues.id,
     },
     {
       where: {
