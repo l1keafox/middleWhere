@@ -30,7 +30,7 @@ async function joinGroup(){
         method: "PUT",
         headers: { "Content-Type": "application/json" },
       });
-
+      // TODO - create alerts for bad join groups
     console.log("Join Group!",document.querySelector('#userGroupInput').value);
     document.location.assign('/');
 
@@ -42,7 +42,7 @@ async function createGroup() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({"name":document.querySelector("#userGroupInput").value }),
   });
-
+  // TODO - create alerts for bad join group create?
   console.log("create Group!",response.body, 'This should be the group!' );
   document.location.assign('/');
 
