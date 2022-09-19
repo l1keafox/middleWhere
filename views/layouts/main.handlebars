@@ -1,3 +1,7 @@
+{{!-- This is the 'wrapper' that is created with all .render() calls vai controller/home-routes or profile-routes.
+navbar.js handles the functionality of the buttons in the navbar.
+--}}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,15 +31,16 @@
         {{!-- NavBar only necessary for logged in users --}}
         {{#if loggedIn}}
         {{!-- Create and Join Group via form input --}}
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" id="userGroupInput" placeholder="Group ID">
-        </form>    
         <button class="btn btn-outline-warning"  id="joinGroup" type="submit">
-          Join!
+          Join Group
         </button>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" id="userGroupInput" placeholder="Group Name">
+        </form>    
         <button class="btn btn-outline-warning" id="createGroup">
-          Create
+          Create Group
         </button>
+        <button class="btn btn-outline-warning" id="leaveGroup"> Leave Group </button>
       </div>
 
       {{!-- Navigation Page --}}
@@ -57,26 +62,28 @@
         {{/if}}
       </div>
     </div>
+    
+    
   </div>
 
   <main> 
     <div class="main-page">
-
-
-
       {{{body}}}
+    </div>
   </main>
 
-  <footer class="bg-dark text-light text-center position-absolute bottom-0 vw-100">
+  <footer class="bg-dark text-light text-center position-fixed bottom-0 vw-100">
     <p class="border-bottom border-warning">Middle-Where was created in collaboration:</p>
-    <ul class="footerul">
-      <li onclick="location.href='https://github.com/alverson98';"> Hannah Alverson </li>
-      <li onclick="location.href='https://github.com/ZacharyFeltman';">Zachary Feltman</li>
-      <li onclick="location.href='https://github.com/dylangriess';">Dylan Griess</li>
-      <li onclick="location.href='https://github.com/l1keafox';">Raymond Lewis</li>
-      <li onclick="location.href='https://github.com/halliemestas';">Hallie Mestas</li>
-      <li onclick="location.href='https://github.com/jeffbone95';">Jeff Willingham</li>
-    </ul>
+    <div>
+      <ul class="footerul">
+        <li onclick="location.href='https://github.com/alverson98';">Hannah Alverson  |</li>
+        <li onclick="location.href='https://github.com/ZacharyFeltman';">Zachary Feltman  |</li>
+        <li onclick="location.href='https://github.com/dylangriess';">Dylan Griess  |</li>
+        <li onclick="location.href='https://github.com/l1keafox';">Raymond Lewis  |</li>
+        <li onclick="location.href='https://github.com/halliemestas';">Hallie Mestas  |</li>
+        <li onclick="location.href='https://github.com/jeffbone95';">Jeff Willingham</li>
+      </ul>
+    </div>
   </footer>
 
   <script src="./js/navBar.js"></script>

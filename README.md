@@ -17,9 +17,9 @@ An website that will help people find the middle location to meet up.
 
 1.  Run the server.
 
-- <a href='https://l1keafox.github.io/Middle-Where/'  target="_blank"> Click here for deployment </a>
+- <a href='https://limitless-temple-38712.herokuapp.com/'  target="_blank"> Click here for deployment </a>
 
-  ![Website](/assets/images/readme.PNG)
+  ![Website](/public/assets/readme.PNG)
 
 ## Installation
 
@@ -50,26 +50,31 @@ No test yet created.
 
 <a href='https://github.com/l1keafox'>Github: Raymond Lewis</a>
 
-<a href="mailto: raymond.ed.lewis@gmail.com">Email: Hallie.Mestas@gmail.com</a>
+<a href="mailto: halliemestas@gmail.com">Email: halliemestas@gmail.com</a>
 
-<a href='https://github.com/l1keafox'>Github: Hallie Mestas</a>
+<a href='https://github.com/halliemestas'>Github: Hallie Mestas</a>
 
 <a href="mailto: dylangriess@gmail.com">Email: dylangriess@gmail.com</a>
 
 <a href='https://github.com/dylangriess'>Github: Dylan Griess</a>
 
-<a href="mailto: raymond.ed.lewis@gmail.com">Email: Hannah Alverson@gmail.com</a>
+<a href="mailto: alverson98@yahoo.com">Email: alverson98@yahoo.com</a>
 
-<a href='https://github.com/l1keafox'>Github: Hannah Alverson</a>
+<a href='https://github.com/alverson98'>Github: Hannah Alverson</a>
 
-<a href="mailto: raymond.ed.lewis@gmail.com">Email: Zachary Feltman@gmail.com</a>
+<a href="mailto: zachary.feltman@gmail.com">Email: zachary.feltman@gmail.com</a>
 
-<a href='https://github.com/l1keafox'>Github: Zachary Feltman</a>
+<a href='https://github.com/ZacharyFeltman'>Github: Zachary Feltman</a>
 
-<a href="mailto: raymond.ed.lewis@gmail.com">Email: Jeff Willingham@gmail.com</a>
+<a href="mailto: jeffbone95.com">Email: jeffbone95@gmail.com</a>
 
-<a href='https://github.com/l1keafox'>Github: Jeff Willingham</a>
+<a href='https://github.com/jeffbone95'>Github: Jeff Willingham</a>
 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Presentation 
+
+<a href='https://docs.google.com/presentation/d/1mJAnkit0rNHCGjT-1jI36Znehp6LbozFCB8hok9lkAE/edit#slide=id.g156b6241ecc_2_50'> Middle-Where Project Presentation </a>
