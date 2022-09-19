@@ -183,6 +183,10 @@ router.put("/joinGroup/:groupName", async (req, res) => {
 // req.session.user.groupId is what should be set to null.
 router.put("/leaveGroup/", async (req, res) => {
   try {
+    if(req.session.user.groupId === null){
+      res.status(201).json({msg:"no group"});
+       return;
+    }
     const deleteGroupData = await User.update(
       { groupId: null },
       {
