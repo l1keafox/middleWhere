@@ -21,7 +21,14 @@ router.post("/", (req, res) => {
           },
         }
       ).then(()=>{
-        res.json(newGroup);
+        req.session.save(() => {
+          req.session.user.groupId = newGroup.dataValues.id;
+          res
+            .status(200)
+            .json(newGroup);
+        });
+  
+//        res.json(newGroup);
       });
 
       

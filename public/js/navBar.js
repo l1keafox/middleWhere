@@ -30,7 +30,10 @@ async function joinGroup(){
         method: "PUT",
         headers: { "Content-Type": "application/json" },
       });
+
     console.log("Join Group!",document.querySelector('#userGroupInput').value);
+    document.location.assign('/');
+
 }
 
 async function createGroup() {
@@ -41,6 +44,8 @@ async function createGroup() {
   });
 
   console.log("create Group!",response.body, 'This should be the group!' );
+  document.location.assign('/');
+
 }
 
 
