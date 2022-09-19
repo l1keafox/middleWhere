@@ -8,7 +8,10 @@ No logic created for this file, if you want functionality for buttons ect.ect. y
 <div class="container">
   <div class="column user-card-header m-3 col-3">
     <h1 class="justify-content-center">User Info</h1>
-    {{user.userName}}
+    <br />
+    <p class="fs-4">Username: {{user.userName}}</p>
+    <p class="fs-4">Latitude: {{user.latitude}}</p>
+    <p class="fs-4">Longitude: {{user.longitude}}</p>
   </div>
   <div class="card user-card-info">
   </div>
@@ -31,12 +34,13 @@ No logic created for this file, if you want functionality for buttons ect.ect. y
   </div>
   <div class="column groups-card-header m-3 col-3">
     <h1 class="justify-content-center">Your Groups</h1>
+    <br />
     {{#if noGroup}}
       <p>You are not currently in a group. Join one today!</p>
     {{/if}}
     {{#unless noGroup}}
       {{#each userGroup as |group|}}
-        <p>{{group}}</p>
+        <p class="fs-4">Group Name: {{group}}</p>
       {{/each}}
     {{/unless}}
   </div>

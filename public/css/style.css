@@ -43,7 +43,7 @@
 }
 
 .userGroupColumn {
-  background-color: black;
+  /* background-color: black; */
 }
 
 footer {
@@ -89,8 +89,6 @@ footer {
     width: 100%;
   }
 }
-
-
 
 
 
