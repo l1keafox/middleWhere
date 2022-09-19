@@ -6,18 +6,17 @@
 // Initialize and add the map
 
 async function initMap() {
-    // TODO :
-    // WE need to pull Sser groupId and replace it in the reponse fetch.
-    // so it'll be await fetch'/api/users/myGroupID'
-    // We need to see if user has a groupID, if not, then do not init map,
-    // and instead we show join/create group.
-  
-    
-    
     const response = await fetch(`/api/groups/`,{
       method:'GET',
     });
     let json = await response.json();
+
+    if(!json.latitude){
+      console.log('NO GROUP!');
+      // TO DO display something about create group
+      console.log('DISPLAY SOMETHING ABOUT CREATE GROUP');
+      return;
+    }
 
     const centerOfMap = { lat: parseFloat( json.latitude ), lng: parseFloat( json.longitude ) };
     const image =
