@@ -5,11 +5,10 @@ router.get("/", async (req, res) => {
   try {
     // This is where we determeine what page to render for the user.
     // If there is an session we will render map
+    // req.session is the cookie session, and loggedIn/User in the session determines if we are logged in or not. 
     if (req.session && req.session.loggedIn) {
-      // Here we should make an api/group/id# request to grab info for the map.
-      //
 
-      let currentUserGroup;
+      let currentUserGroup; // This will hold the group if there is an groupId.
       if (req.session.user.groupId) {
         currentUserGroup = await Group.findOne({
           where: {
@@ -19,15 +18,15 @@ router.get("/", async (req, res) => {
       }
 
       //getting all user groups
-      let allUserGroups;
+      let allUserGroups; // this will hold 
       let noGroup;
       if (req.session.user.groupId) {
-        currentUserGroups = await Group.findAll({
+        let allCurUserNGroup = await Group.findAll({
           where: {
             id: req.session.user.groupId,
           },
         });
-        allUserGroups = currentUserGroups.map((group) =>
+        allUserGroups = allCurUserNGroup.map((group) =>
           group.get({ plain: true })
         );
         noGroup = false;
@@ -51,6 +50,10 @@ router.get("/", async (req, res) => {
         noGroup = true;
       }
 
+
+      // Here is the render that will use map.handlebars + main.handlebars to return an html.
+      // Object is passed with various values that can be used in the handlebars
+      // what is changed in this object must be changed in the handlebars.
       res.render("map", {
         members: allMems ? allMems : null,
         groupName: currentUserGroup ? currentUserGroup.dataValues.name : null,

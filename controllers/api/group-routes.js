@@ -2,6 +2,8 @@ const router = require("express").Router();
 const { Group, User } = require("../../models");
 const centerLocation = require("../../utils/center-location");
 
+
+// This is called via navbar.js at function createGroup.
 router.post("/", (req, res) => {
   console.log("Creating group",req.body.name,req.session.user.id, "is creator");
  
@@ -37,6 +39,7 @@ router.post("/", (req, res) => {
 });
 
 // GET group data to show all the users in the group
+// This is called at map.js function initMap.
 router.get("/allUsers/", async (req, res) => {
   try {
     const userData = await User.findAll({
@@ -52,6 +55,7 @@ router.get("/allUsers/", async (req, res) => {
 });
 
 // getting group center location data
+// This is called at map.js function initMap.
 router.get("/", async (req, res) => {
   // Redirect the user to the login page if not logged in
   if (!req.session.loggedIn) {
@@ -60,7 +64,7 @@ router.get("/", async (req, res) => {
     //function that calculates center location
     console.log(req.session.user,"getting groupId",req.session.user.groupId === undefined);
     if(req.session.user.groupId === undefined){
-      // TODO - need something better than this.
+      // TODO - need something better than this, we can return just the user lat/long to start.
       console.log('return');
       res.status(200).json({});
       return;
@@ -77,14 +81,15 @@ router.get("/", async (req, res) => {
 });
 
 // Logout Group
-router.post("/logout", (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
+// why does this exist? 
+// router.post("/logout", (req, res) => {
+//   if (req.session.loggedIn) {
+//     req.session.destroy(() => {
+//       res.status(204).end();
+//     });
+//   } else {
+//     res.status(404).end();
+//   }
+// });
 
 module.exports = router;

@@ -13,13 +13,13 @@ const logout = async () => {
 };
 
 async function goToProfile(){
-    console.log("profile");
+    console.log("Going to Profile");
     event.preventDefault();
     document.location.assign('/profile');
 }
 
 async function goToMap() {
-    console.log("map");
+    console.log("going to map? yeah yeah yeah, map and home page are the same right now");
     event.preventDefault();
     document.location.assign('/');
 
@@ -30,7 +30,7 @@ async function joinGroup(){
         method: "PUT",
         headers: { "Content-Type": "application/json" },
       });
-
+      // TODO - create alerts for bad join groups
     console.log("Join Group!",document.querySelector('#userGroupInput').value);
     document.location.assign('/');
 
@@ -42,16 +42,17 @@ async function createGroup() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({"name":document.querySelector("#userGroupInput").value }),
   });
-
+  // TODO - create alerts for bad join group create?
   console.log("create Group!",response.body, 'This should be the group!' );
   document.location.assign('/');
 
 }
 
 
-if(document.querySelector('#logout')){
-    document.querySelector('#logout').addEventListener('click', logout);
-}
+// These are checking if the querySelector exists - cause they are hidden in the home/login page
+// Then adds event listener if it does exist - when in any screen than login.
+if(document.querySelector('#logout'))document.querySelector('#logout').addEventListener('click', logout);
+
 if(document.querySelector('#profile'))document.querySelector('#profile').addEventListener('click',goToProfile);
 if(document.querySelector('#joinGroup'))document.querySelector('#joinGroup').addEventListener('click',joinGroup);
 if(document.querySelector('#createGroup'))document.querySelector('#createGroup').addEventListener('click',createGroup);

@@ -4,6 +4,7 @@ const router = require("express").Router();
 router.get("/", async (req, res) => {
     try {
       res.render("profile", {
+        user: req.session.user, // pasing user data for handlebars profile
         loggedIn: req.session.loggedIn,
       });
     } catch (err) {

@@ -46,6 +46,7 @@ async function signupFormHandler(event) {
       document.location.replace("/");
 
     } else {
+      // TODO - create alerts for bad login.
       console.log("404");
     }
   }

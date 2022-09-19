@@ -1,3 +1,7 @@
+{{!-- This is the 'wrapper' that is created with all .render() calls vai controller/home-routes or profile-routes.
+navbar.js handles the functionality of the buttons in the navbar.
+--}}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,7 +62,7 @@
       </div>
     </div>
     <div class="topnav navbar bg-dark text-light container-fluid justify-content-end">
-      {{!-- Just placing this here for now --}}
+      {{!-- TODO - make this better !Just placing this here for now --}}
       <h3>Group Name:{{groupName}}</h3>
       <h3>User Name:{{userInfo.userName}}</h3>
     </div>
@@ -66,10 +70,8 @@
 
   <main> 
     <div class="main-page">
-
-
-
       {{{body}}}
+    </div>
   </main>
 
   <footer class="bg-dark text-light text-center position-absolute bottom-0 vw-100">
