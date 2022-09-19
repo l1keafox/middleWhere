@@ -2,8 +2,14 @@
 home-routes will pass a lot of information via object to this handle bar to render. 
 Logic for this is handle in public/js/map.js --}}
 
+<div class="topnav navbar bg-dark text-light container-fluid justify-content-end">
+      {{#if loggedIn}}
+      <h3> Group Name: <span class="text-warning fw-bold"> {{groupName}} </span> Username: <span class="text-warning fw-bold"> {{userInfo.userName}} </span> </h3>
+      {{/if}}
+    </div>
+
 <div class="container justify-content-center">
-    <div id="groupList" class="col">
+    <div id="groupList" class="col m-2">
       <h5> Group History </h5>
       {{#if noGroup}}
         <p> {{noGroupMessage}} </p>
@@ -15,7 +21,7 @@ Logic for this is handle in public/js/map.js --}}
       {{/if}}
     </div>
     <div id="map" class="col-6"></div>
-    <div class="col">
+    <div class="col m-2">
       <h5> Users in {{groupName}} </h5>
         {{#each members as |person|}}
           <div class="border border-warning userItems">
