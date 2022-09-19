@@ -1,4 +1,5 @@
 const logout = async () => {
+
     const response = await fetch ('/api/users/logout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -21,6 +22,7 @@ async function goToMap() {
     console.log("map");
     event.preventDefault();
     document.location.assign('/');
+
 }
 
 async function joinGroup(){
@@ -30,10 +32,11 @@ async function joinGroup(){
     console.log("Join Group!",document.querySelector('#userGroupInput').value);
 }
 
-async function createGroup(){
-    // TODO - use post too /api/groups/ to create a group.
-    console.log('create Group!',document.querySelector('#userGroupInput').value);
+async function createGroup() {
+  // TODO - use post too /api/groups/ to create a group.
+  console.log("create Group!", document.querySelector("#userGroupInput").value);
 }
+
 
 if(document.querySelector('#logout')){
     document.querySelector('#logout').addEventListener('click', logout);
@@ -45,3 +48,4 @@ if(document.querySelector('#createGroup'))document.querySelector('#createGroup')
 
 if(document.querySelector('#home'))document.querySelector('#home').addEventListener('click', goToMap);
 if(document.querySelector('#mapBtn'))document.querySelector('#mapBtn').addEventListener('click', goToMap);
+
