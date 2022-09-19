@@ -74,6 +74,10 @@ footer {
   width: 100%
 }
 
+#footer-margin {
+  margin-bottom: 0;
+}
+
 /* .info-boxes {
   flex-wrap: wrap;
 } */
