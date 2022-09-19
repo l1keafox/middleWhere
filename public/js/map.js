@@ -8,7 +8,9 @@
 async function initMap() {
     const response = await fetch(`/api/groups/`,{
       method:'GET',
+
     });
+    console.log(response);
     let json = await response.json();
 
     if(!json.latitude){
