@@ -42,7 +42,13 @@
 .border {
   width: 150px;
 }
+@media only screen and (max-width: 600px) { 
+  .topnav  
+  
 
+
+
+}
 
 
 
