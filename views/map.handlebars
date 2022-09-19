@@ -25,9 +25,13 @@ Logic for this is handle in public/js/map.js }}
     <h5> Users in {{groupName}} </h5>
     {{#each members as |person|}}
       <div class="border border-warning userItems">
-        {{person.userName}},
-        {{person.longitude}},
-        {{person.latitude}}
+        <div class="userName">
+          {{person.userName}}
+        </div>
+        <div id="latLong">
+          {{person.longitude}},
+          {{person.latitude}}
+        </div>
       </div>
     {{/each}}
   </div>
