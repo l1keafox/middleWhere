@@ -20,17 +20,6 @@ Logic for this is handle in public/js/map.js }}
         </ul>
       {{/if}}
     </div>
-    <div id="map" class="col-6"></div>
-    <div class="col m-2">
-      <h5> Users in {{groupName}} </h5>
-        {{#each members as |person|}}
-          <div class="border border-warning userItems">
-            {{person.userName}}, {{person.longitude}}, {{person.latitude}}
-          </div>
-        {{/each}}
-      </ul>
-    {{/if}}
-  </div>
   <div id="map" class="col-6 m-3"></div>
   <div class="col m-3">
     <h5> Users in {{groupName}} </h5>
