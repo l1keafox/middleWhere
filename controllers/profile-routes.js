@@ -7,6 +7,7 @@ router.get("/", async (req, res) => {
     let userGroup;
     let noGroup;
     if (req.session.user.groupId) {
+      //get groups if there is an active groupId
       let groupData = await Group.findAll({
         where: {
           id: req.session.user.groupId,
@@ -16,8 +17,8 @@ router.get("/", async (req, res) => {
       userGroup = groupData.map((group) => group.name);
       noGroup = false;
     }
-    console.log(userGroup);
 
+    //set no group to true to properly render the info on the profile page
     if (req.session.user.groupId === null) {
       noGroup = true;
     }
