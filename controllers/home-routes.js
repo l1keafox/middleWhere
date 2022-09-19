@@ -6,8 +6,6 @@ router.get("/", async (req, res) => {
     // This is where we determeine what page to render for the user.
     // If there is an session we will render map
     if (req.session && req.session.loggedIn) {
-      // Here we should make an api/group/id# request to grab info for the map.
-      //
 
       let currentUserGroup;
       if (req.session.user.groupId) {
@@ -22,12 +20,12 @@ router.get("/", async (req, res) => {
       let allUserGroups;
       let noGroup;
       if (req.session.user.groupId) {
-        currentUserGroups = await Group.findAll({
+        let allCurUserNGroup = await Group.findAll({
           where: {
             id: req.session.user.groupId,
           },
         });
-        allUserGroups = currentUserGroups.map((group) =>
+        allUserGroups = allCurUserNGroup.map((group) =>
           group.get({ plain: true })
         );
         noGroup = false;
