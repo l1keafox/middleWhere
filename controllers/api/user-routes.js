@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
   // User.findAll().then((userData) => {
   //   res.json(userData);
   // }); 
-  console.log(req.session.user.id);
+  console.log(req.session);
   User.findOne({
     where: {
       id: req.session.user.id,
@@ -42,6 +42,7 @@ router.post("/", async (req, res) => {
     });
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user = createUser;
 
       res.status(200).json(createUser);
     });
@@ -77,6 +78,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user = loginUser;
 
       res
         .status(200)
@@ -107,13 +109,14 @@ router.get("/currentGroup/:id", async (req, res) => {
 
 //update user for current groupId.
 router.put("/:id", (req, res) => {
+  console.log("Updating user ID:",req.session.user.id,"too",  req.params.id, "Group needs to exist to join soo.");
   User.update(
     {
-      groupId: req.body.groupId,
+      groupId: req.params.id,
     },
     {
       where: {
-        id: req.params.id,
+        id: req.session.user.id,
       },
     }
   )
