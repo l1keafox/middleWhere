@@ -61,18 +61,22 @@ router.get("/", async (req, res) => {
     console.log(req.session.user,"getting groupId",req.session.user.groupId === undefined);
     if(req.session.user.groupId === undefined){
       // TODO - need something better than this.
-      console.log('return');
-      res.status(200).json({});
+      // console.log('return');
+      // res.status(200).json({});
+      // return;
+      console.log({lat:req.session.user.latitude , lng:req.session.user.longitude });
+      res.status(200).json({latitude:req.session.user.latitude , longitude:req.session.user.longitude })
       return;
-    }
-    console.log(req.session.user.groupId,"No group ID?");
-    let results = await centerLocation(req.session.user.groupId);
-
-    if (results === null) {
-      res.status(500).json(err);
     } else {
-      res.status(200).json(results);
+      let results = await centerLocation(req.session.user.groupId);
+      if (results === null) {
+        res.status(500).json(err);
+      } else {
+        res.status(200).json(results);
+      }
     }
+    
+
   }
 });
 

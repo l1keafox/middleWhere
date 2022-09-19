@@ -17,7 +17,9 @@ router.get("/", async (req, res) => {
               id: req.session.user.groupId,
             },
           });
-          }
+        } else {
+          
+        }
 
         let allMems;
         let allGroups;
@@ -28,7 +30,7 @@ router.get("/", async (req, res) => {
             },
           });
           allMems = allGroups.map((dish) => dish.get({ plain: true }));
-          }
+        }
 
         res.render("map", {
           members:allMems? allMems: null,

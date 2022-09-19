@@ -9,7 +9,7 @@ async function initMap() {
     let json = await response.json();
 
     if(!json.latitude){
-      console.log('NO GROUP!');
+      console.log('NO GROUP!',json);
       // TO DO display something about create group
       console.log('DISPLAY SOMETHING ABOUT CREATE GROUP');
       return;
