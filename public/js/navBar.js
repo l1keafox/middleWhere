@@ -26,20 +26,21 @@ async function goToMap() {
 }
 
 async function joinGroup(){
-    //TODO - use route /api/users/NOTYETCREATED to join a party
-
     const response = await fetch(`/api/users/${document.querySelector('#userGroupInput').value}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-
       });
-   console.log(response);
     console.log("Join Group!",document.querySelector('#userGroupInput').value);
 }
 
 async function createGroup() {
-  // TODO - use post too /api/groups/ to create a group.
-  console.log("create Group!", document.querySelector("#userGroupInput").value);
+  const response = await fetch(`/api/groups/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({"name":document.querySelector("#userGroupInput").value }),
+  });
+
+  console.log("create Group!",response.body, 'This should be the group!' );
 }
 
 

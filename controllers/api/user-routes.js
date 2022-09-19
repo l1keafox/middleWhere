@@ -4,21 +4,34 @@ const Group = require("../../models/Group");
 
 // See ALL users
 router.get("/", (req, res) => {
-  // User.findAll().then((userData) => {
-  //   res.json(userData);
-  // }); 
-  console.log(req.session);
-  User.findOne({
-    where: {
-      id: req.session.user.id,
-    },
-  }).then((userData) => {
+  User.findAll().then((userData) => {
     res.json(userData);
+  }); 
+ });
+
+router.put("/:newGroup",(req,res) => {
+  console.log('Creating Group ',req.params.newGroup);
+  Group.findOne({
+    where: {
+      name: req.params.newGroup,
+    },
+  }).then((group) => {
+    console.log(" ->> Updating user too :",group.id);
+    User.update(
+      {
+        groupId: group.id,
+      },
+      {
+        where: {
+          id: req.session.user.id,
+        },
+      }
+    ).then(()=>{
+      res.status(200);
+    });
+
   });
-
-
 });
-
 // See ONE user
 router.get("/:id", (req, res) => {
   User.findOne({
