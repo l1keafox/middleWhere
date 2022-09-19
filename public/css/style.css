@@ -31,9 +31,17 @@
   cursor:pointer;
 }
 
+.userName {
+  background-color: black;
+}
 
+#latLong {
+  background-color: black;
+}
 
-
+.border {
+  width: 150px;
+}
 
 
 
