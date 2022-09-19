@@ -13,9 +13,9 @@ const loginFormHandler = async (event) => {
         body: JSON.stringify({ userName, password }),
         headers: { "Content-Type": "application/json" },
       });
-
+      console.log(response.body.user);
       if (response.ok) {
-        document.location.replace("/profile");
+        //document.location.replace("/profile");
       } else {
         alert("Login Failed");
       }
@@ -41,8 +41,9 @@ async function signupFormHandler(event) {
       }),
       headers: { "Content-Type": "application/json" },
     });
+    console.log(response);
     if (reponse.ok) {
-      document.location.replace("/");
+      //document.location.replace("/");
     } else {
       console.log("404");
     }

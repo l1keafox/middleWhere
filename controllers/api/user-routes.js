@@ -4,9 +4,20 @@ const Group = require("../../models/Group");
 
 // See ALL users
 router.get("/", (req, res) => {
+  req.session.user.id
   User.findAll().then((userData) => {
     res.json(userData);
   });
+});
+router.get("/myInfo", (req, res) => {
+  User.findOne({
+    where: {
+      id: req.session.user.id,
+    },
+  }).then((userData) => {
+    res.json(userData);
+  });
+
 });
 
 // See ONE user

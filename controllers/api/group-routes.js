@@ -15,11 +15,40 @@ router.post("/", (req, res) => {
     });
 });
 
+router.get("/currentGroup", async (req, res) => {
+  try {
+    console.log(req.session,req.session.user);
+    if(!req.session ||!req.session.user) res.status(200);
+    const userData = await User.findAll({
+      where: { groupId: req.session.user.groupId },
+      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+    });
+    const allUsers = userData.map((data) => data.get({ plain: true }));
+    res.status(200).json(allUsers);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+// router.get("/currentGroup/allUsers", (req, res) => {
+//   try {
+//     const userData = await User.findAll({
+//       where: { groupId: req.session.user.groupId },
+//       attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+//     });
+//     const allUsers = userData.map((data) => data.get({ plain: true }));
+//     res.status(200).json(allUsers);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
 // GET group data to show all the users in the group
-router.get("/allUsers/:id", async (req, res) => {
+router.get("/allUsers/", async (req, res) => {
   try {
     const userData = await User.findAll({
-      where: { groupId: req.params.id },
+      where: { groupId: req.session.user.groupId },
       attributes: { exclude: ["password", "createdAt", "updatedAt"] },
     });
     const allUsers = userData.map((data) => data.get({ plain: true }));
