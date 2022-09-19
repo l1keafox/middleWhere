@@ -19,7 +19,7 @@ An website that will help people find the middle location to meet up.
 
 - <a href='https://limitless-temple-38712.herokuapp.com/'  target="_blank"> Click here for deployment </a>
 
-  ![Website](readme.PNG)
+  ![Website](/public/assets/readme.PNG)
 
 ## Installation
 
@@ -66,10 +66,15 @@ No test yet created.
 
 <a href='https://github.com/ZacharyFeltman'>Github: Zachary Feltman</a>
 
-<a href="mailto: raymond.ed.lewis@gmail.com">Email: Jeff Willingham@gmail.com</a>
+<a href="mailto: jeffbone95.com">Email: jeffbone95@gmail.com</a>
 
 <a href='https://github.com/jeffbone95'>Github: Jeff Willingham</a>
 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Presentation 
+
+<a href='https://docs.google.com/presentation/d/1mJAnkit0rNHCGjT-1jI36Znehp6LbozFCB8hok9lkAE/edit#slide=id.g156b6241ecc_2_50'> Middle-Where Project Presentation </a>
