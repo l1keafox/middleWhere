@@ -19,7 +19,7 @@ An website that will help people find the middle location to meet up.
 
 - <a href='https://l1keafox.github.io/Middle-Where/'  target="_blank"> Click here for deployment </a>
 
-  ![Website](/assets/images/readme.PNG)
+  ![Website](readme.PNG)
 
 ## Installation
 
