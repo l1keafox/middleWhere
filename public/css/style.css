@@ -1,5 +1,5 @@
-*{
-  font-family: 'Roboto', sans-serif;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
 .container {
@@ -12,6 +12,9 @@
   background-color: gainsboro;
 }
 
+.main-page {
+  margin-bottom: 80px;
+}
 
 .column {
   float: left;
@@ -28,7 +31,7 @@
 .footerul li {
   list-style-type: none;
   display: inline;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .userName {
@@ -38,9 +41,9 @@
 }
 
 #latLong {
- color: goldenrod;
- text-align: center;
- padding-top: 25px;
+  color: goldenrod;
+  text-align: center;
+  padding-top: 25px;
 }
 
 .userGroupColumn {
@@ -59,19 +62,19 @@ footer {
 }
 
 #username-signup {
-  width: 100%
+  width: 100%;
 }
 
 #password-signup {
-  width: 100%
+  width: 100%;
 }
 
 #username-log {
-  width: 100%
+  width: 100%;
 }
 
 #password-log {
-  width: 100%
+  width: 100%;
 }
 
 #footer-margin {
@@ -94,104 +97,9 @@ footer {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Hallie's space */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Jeff's space*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #map {
   height: 400px;
