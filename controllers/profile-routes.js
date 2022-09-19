@@ -13,9 +13,10 @@ router.get("/", async (req, res) => {
         },
         attributes: ["name"],
       });
-      const userGroup = groupData.map((group) => group.name);
+      userGroup = groupData.map((group) => group.name);
       noGroup = false;
     }
+    console.log(userGroup);
 
     if (req.session.user.groupId === null) {
       noGroup = true;
