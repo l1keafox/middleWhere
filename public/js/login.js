@@ -17,7 +17,7 @@ const loginFormHandler = async (event) => {
       if (response.ok) {
         document.location.replace("/profile");
       } else {
-        alert("Login Failed");
+        alert("Login failed. Invalid username or password.");
       }
     } catch (err) {
       console.log(err);
@@ -45,8 +45,8 @@ async function signupFormHandler(event) {
     if (response.ok) {
       document.location.replace("/profile");
     } else {
-      // TODO - create alerts for bad login.
       console.log("404");
+      alert("Unable to sign up.");
     }
   }
 
