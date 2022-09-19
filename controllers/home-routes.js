@@ -18,14 +18,20 @@ router.get("/", async (req, res) => {
             },
           });
           }
-        let allGroups = await User.findAll({
-          where:{
-            groupId: req.session.user.groupId
-          },
-        });
-        const dishes = allGroups.map((dish) => dish.get({ plain: true }));
+
+        let allMems;
+        let allGroups;
+        if( req.session.user.groupId) {
+          allGroups = await User.findAll({
+            where:{
+              groupId: req.session.user.groupId
+            },
+          });
+          allMems = allGroups.map((dish) => dish.get({ plain: true }));
+          }
+
         res.render("map", {
-          members:dishes,
+          members:allMems? allMems: null,
           groupName:currentUserGroup? currentUserGroup.dataValues.name : null,
           userInfo:req.session.user,
           loggedIn: req.session.loggedIn,
