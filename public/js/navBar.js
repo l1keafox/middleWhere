@@ -26,7 +26,7 @@ async function goToMap() {
 }
 
 async function joinGroup(){
-    const response = await fetch(`/api/users/${document.querySelector('#userGroupInput').value}`, {
+    const response = await fetch(`/api/users/joinGroup/${document.querySelector('#userGroupInput').value}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
       });

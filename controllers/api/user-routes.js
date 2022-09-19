@@ -134,7 +134,7 @@ router.post("/login", async (req, res) => {
 
 //update user for current groupId.
 // this is currently called via navbar.js function joinGroup.
-router.put("/:id", (req, res) => {
+router.put("/joinGroup/:id", (req, res) => {
   console.log("Updating user ID:",req.session.user.id,"too",  req.params.id, "Group needs to exist to join soo.");
   User.update(
     {
@@ -166,6 +166,8 @@ router.put("/leaveGroup/", async (req, res) => {
         },
       }
     );
+
+    console.log('here should be empty',deleteGroupData);
 
     //this should return empty if groupId is set to null
     res.json(deleteGroupData);

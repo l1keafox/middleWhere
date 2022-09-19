@@ -11,7 +11,7 @@ Logic for this is handle in public/js/map.js }}
 <div class="container justify-content-center">
     <div id="groupList" class="col m-2">
       <h5> Group History </h5>
-      {{#if noGroup}}
+      {{#if noGroupMessage}}
         <p> {{noGroupMessage}} </p>
       {{else}}
         <ul>{{#each allUserGroups as |group|}}
