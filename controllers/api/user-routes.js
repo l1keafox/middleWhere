@@ -6,9 +6,32 @@ const Group = require("../../models/Group");
 router.get("/", (req, res) => {
   User.findAll().then((userData) => {
     res.json(userData);
+  }); 
+ });
+
+router.put("/:newGroup",(req,res) => {
+  console.log('Creating Group ',req.params.newGroup);
+  Group.findOne({
+    where: {
+      name: req.params.newGroup,
+    },
+  }).then((group) => {
+    console.log(" ->> Updating user too :",group.id);
+    User.update(
+      {
+        groupId: group.id,
+      },
+      {
+        where: {
+          id: req.session.user.id,
+        },
+      }
+    ).then(()=>{
+      res.status(200);
+    });
+
   });
 });
-
 // See ONE user
 router.get("/:id", (req, res) => {
   User.findOne({
@@ -32,6 +55,7 @@ router.post("/", async (req, res) => {
     });
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user = createUser;
 
       res.status(200).json(createUser);
     });
@@ -67,6 +91,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user = loginUser;
 
       res
         .status(200)
@@ -97,13 +122,14 @@ router.get("/currentGroup/:id", async (req, res) => {
 
 //update user for current groupId.
 router.put("/:id", (req, res) => {
+  console.log("Updating user ID:",req.session.user.id,"too",  req.params.id, "Group needs to exist to join soo.");
   User.update(
     {
-      groupId: req.body.groupId,
+      groupId: req.params.id,
     },
     {
       where: {
-        id: req.params.id,
+        id: req.session.user.id,
       },
     }
   )

@@ -3,14 +3,31 @@ const { Group, User } = require("../../models");
 const centerLocation = require("../../utils/center-location");
 
 router.post("/", (req, res) => {
+  console.log("Creating group",req.body.name,req.session.user.id, "is creator");
+ 
   Group.create({
-    id: req.body.id,
     name: req.body.name,
   })
     .then((newGroup) => {
-      res.json(newGroup);
+
+      console.log("created",newGroup.dataValues.id);
+      User.update(
+        {
+          groupId: newGroup.dataValues.id,
+        },
+        {
+          where: {
+            id: req.session.user.id,
+          },
+        }
+      ).then(()=>{
+        res.json(newGroup);
+      });
+
+      
     })
     .catch((err) => {
+      console.log("createdNOT",err);
       res.json(err);
     });
 });

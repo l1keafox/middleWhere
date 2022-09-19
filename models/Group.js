@@ -17,11 +17,11 @@ Group.init(
     },
     longitude: {
       type: DataTypes.DECIMAL(15, 6),
-      allowNull: false,
+      allowNull: true,
     },
     latitude: {
       type: DataTypes.DECIMAL(15, 6),
-      allowNull: false,
+      allowNull: true,
     },
   },
   {
