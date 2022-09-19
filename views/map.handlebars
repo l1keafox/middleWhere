@@ -2,7 +2,7 @@
 home-routes will pass a lot of information via object to this handle bar to render. 
 Logic for this is handle in public/js/map.js }}
 
-<div class="topnav navbar bg-dark text-light container-fluid justify-content-end">
+<div class="topnav navbar bg-dark text-light container-fluid justify-content-end pe-3">
       {{#if loggedIn}}
       <h3> Group Name: <span class="text-warning fw-bold"> {{groupName}} </span> Username: <span class="text-warning fw-bold"> {{userInfo.userName}} </span> </h3>
       {{/if}}
@@ -22,7 +22,7 @@ Logic for this is handle in public/js/map.js }}
       {{/if}}
     </div> --}}
   <div id="map" class="groupUser col-6 m-3"></div>
-  <div class="col m-3 group-display">
+  <div class="col m-3 bg-dark group-display">
     <h5> Users in {{groupName}} </h5>
     {{#each members as |person|}}
       <div class="userGroupColumn border-warning userItems flex-wrap wrap">
