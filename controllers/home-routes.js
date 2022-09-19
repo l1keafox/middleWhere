@@ -24,7 +24,6 @@ router.get("/", async (req, res) => {
           },
         });
         const dishes = allGroups.map((dish) => dish.get({ plain: true }));
-        console.log(dishes);
         res.render("map", {
           members:dishes,
           groupName:currentUserGroup? currentUserGroup.dataValues.name : null,
