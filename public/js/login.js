@@ -31,7 +31,7 @@ async function signupFormHandler(event) {
   const userName = document.querySelector("#username-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
   async function success(position) {
-    const reponse = await fetch("/api/users", {
+    const response = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify({
         username: userName,
@@ -41,7 +41,7 @@ async function signupFormHandler(event) {
       }),
       headers: { "Content-Type": "application/json" },
     });
-    if (reponse.ok) {
+    if (response.ok) {
       document.location.replace("/");
     } else {
       console.log("404");
