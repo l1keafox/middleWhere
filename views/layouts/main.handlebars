@@ -26,12 +26,12 @@ navbar.js handles the functionality of the buttons in the navbar.
       </header>
     </div>
   
-    <div class="topnav navbar bg-dark text-light container-fluid justify-content-end">
-      <div class="container-fluid bg-dark text-light justify-content-start col "> 
-
         {{!-- NavBar only necessary for logged in users --}}
         {{#if loggedIn}}
         {{!-- Create and Join Group via form input --}}
+    <div class="topnav navbar bg-dark text-light container-fluid justify-content-end">
+      <div class="container-fluid bg-dark text-light justify-content-start col "> 
+
         <button class="btn btn-outline-warning"  id="joinGroup" type="submit">
           Join Group
         </button>
@@ -58,11 +58,11 @@ navbar.js handles the functionality of the buttons in the navbar.
         <a href="" class="btn btn-outline-light" type="button" id="logout">
           Logout
         </a>
+      </div>
+    </div>
         {{else}}
         <a href="" ></a>
         {{/if}}
-      </div>
-    </div>
     
     
   </div>
