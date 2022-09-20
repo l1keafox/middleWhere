@@ -49,6 +49,10 @@
   background-color: black;
   padding-top: 25px;
 }
+@media only screen and (max-width: 1024px) { 
+  .navbar { 
+    display:flex; 
+    justify-content: center; 
 
 footer {
   width: 100%;
@@ -204,4 +208,4 @@ footer {
   word-spacing: 5px;
   height: 50px;
   font-size: 25px;
-}
+} 
