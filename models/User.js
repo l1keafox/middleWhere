@@ -20,10 +20,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    icon:{
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
 
     longitude: {
       type: DataTypes.DECIMAL(15, 6),

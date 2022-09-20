@@ -25,14 +25,14 @@ Group.init(
     },
     //  These are 'options' that for this group settings, this data isn't on the user, but teh
     //  Group, because it's based on the grou p. 
-    userExcludeStatus:{
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    },
-    userButtonStatus :{
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // userExcludeStatus:{
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: true,
+    // },
+    // userButtonStatus :{
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
 
   },
   {
