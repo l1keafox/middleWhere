@@ -43,9 +43,9 @@
 }
 
 @media only screen and (max-width: 1024px) { 
-  .navbar { 
-    display:flex; 
-    justify-content: center; 
+.navbar { 
+  display:flex; 
+  justify-content: center; }
 
 footer {
   width: 100%;
@@ -75,14 +75,19 @@ footer {
   margin-bottom: 0;
   padding-bottom: 10px;
 }
-
+}
 /* .info-boxes {
   flex-wrap: wrap;
 } */
-@media only screen and (max-width: 995px) {
+@media only screen and (max-width: 992px) {
   .info-boxes {
     flex-wrap: wrap;
   }
+
+  .profile-cards {
+    flex-wrap: wrap;
+  }
+
   #signUpLogIn {
     width: 100%;
   }
