@@ -42,6 +42,10 @@ router.post("/", (req, res) => {
 // This is called at map.js function initMap.
 router.get("/allUsers/", async (req, res) => {
   try {
+    if(!req.session.user.groupId){
+      res.status(201).json([]);
+      return;
+    }
     const userData = await User.findAll({
       where: { groupId: req.session.user.groupId },
       attributes: { exclude: ["password", "createdAt", "updatedAt"] },
@@ -65,8 +69,8 @@ router.get("/", async (req, res) => {
     console.log('router.get in group routes;',req.session.user,"getting groupId",req.session.user.groupId === undefined);
     if(req.session.user.groupId === undefined){
       // TODO - need something better than this, we can return just the user lat/long to start.
-      console.log('return');
-      res.status(200).json({});
+      console.log('return',{latitude:req.session.user.latitude, longitude:req.session.user.longitude});
+      res.status(200).json({latitude:req.session.user.latitude, longitude:req.session.user.longitude});
       return;
     }
     let results = await centerLocation(req.session.user.groupId);
