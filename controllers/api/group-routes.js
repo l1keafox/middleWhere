@@ -5,8 +5,9 @@ const centerLocation = require("../../utils/center-location");
 
 // This is called via navbar.js at function createGroup.
 router.post("/", (req, res) => {
-  console.log("Creating group",req.body.name,req.session.user.id, "is creator");
+  console.log(" Creating group",req.body.name,req.session.user.id, "is creator");
  
+
   Group.create({
     name: req.body.name,
   })
