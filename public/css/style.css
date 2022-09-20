@@ -48,12 +48,16 @@
 
 .userGroupColumn {
   width: 115%;
-  height: 200px;
+  height: 130px;
   background-color: black;
   padding-top: 25px;
 }
+@media only screen and (max-width: 1024px) { 
+  .navbar { 
+    display:flex; 
+    justify-content: center; 
 
-footer {
+footer: {
   width: 100%;
 }
 
@@ -97,6 +101,30 @@ footer {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Hallie's space */
 
 /* Jeff's space*/
@@ -114,4 +142,4 @@ footer {
   word-spacing: 5px;
   height: 50px;
   font-size: 25px;
-}
+} 
