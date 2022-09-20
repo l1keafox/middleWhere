@@ -40,6 +40,15 @@ We love your input! We want to make contributing to this project as easy and tra
 
 4.  Proposing new features
 
+
+## Future Ideas
+
+1. Multi-groups
+2. Disclude outliers
+3. Filter center location.
+4. Status buttons.
+
+
 ## Test
 
 No test yet created.
