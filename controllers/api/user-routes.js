@@ -61,6 +61,20 @@ router.get("/allUsers", async (req, res) => {
 // Currently used in login.js signupFormHandler
 router.post("/", async (req, res) => {
   try {
+
+    // lets isee if this user already exists
+
+    const existUser = await User.findOne({
+      where: {
+        userName: req.body.userName,
+      },
+    });
+
+    if(existUser){
+      res.status(201);
+      return;
+    }
+
     const createUser = await User.create({
       userName: req.body.username,
       password: req.body.password,

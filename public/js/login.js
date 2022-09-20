@@ -43,18 +43,23 @@ async function signupFormHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
 
-    const users = await fetch(`/api/allUsers`, {
-      method: "GET",
-    });
-
-    let username = users.json;
-    console.log(users);
-
-    for (i = 0; i < username.length; i++) {
-      if (username[i].userName === userName) {
-        alert("User already exists. Please login");
-      }
+    if(response.status === 201){
+      alert("User name exists");
+      return;
     }
+
+    // const users = await fetch(`/api/allUsers`, {
+    //   method: "GET",
+    // });
+
+    // let username = users.json;
+    // console.log(users);
+
+    // for (i = 0; i < username.length; i++) {
+    //   if (username[i].userName === userName) {
+    //     alert("User already exists. Please login");
+    //   }
+    // }
 
     if (response.ok) {
       document.location.replace("/profile");

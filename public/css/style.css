@@ -41,17 +41,10 @@
 }
 
 #latLong {
-  color: goldenrod;
-  text-align: center;
-  padding-top: 25px;
+ color: goldenrod;
+ text-align: center;
 }
 
-.userGroupColumn {
-  width: 115%;
-  height: 130px;
-  background-color: black;
-  padding-top: 25px;
-}
 @media only screen and (max-width: 1024px) { 
   .navbar { 
     display:flex; 
