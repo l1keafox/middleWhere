@@ -27,12 +27,6 @@ async function initMap() {
   const allUsers = await fetch(`/api/groups/allUsers/`, {
     method: "GET",
   });
-  const marker = new google.maps.Marker({
-    position: centerOfMap,
-    animation: google.maps.Animation.DROP,
-    icon: image,
-    map: map,
-  });
   let inGroup = await allUsers.json();
 
   for (let person of inGroup) {
@@ -46,6 +40,13 @@ async function initMap() {
       map: map,
     });
   }
+  const marker = new google.maps.Marker({
+    position: centerOfMap,
+    animation: google.maps.Animation.DROP,
+    icon: image,
+    map: map,
+  });
+
 }
 
 window.initMap = initMap;
