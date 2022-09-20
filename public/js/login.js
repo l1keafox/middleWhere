@@ -30,6 +30,7 @@ async function signupFormHandler(event) {
 
   const userName = document.querySelector("#username-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
+
   async function success(position) {
     const response = await fetch("/api/users", {
       method: "POST",
@@ -42,6 +43,19 @@ async function signupFormHandler(event) {
       headers: { "Content-Type": "application/json" },
     });
 
+    const users = await fetch(`/api/allUsers`, {
+      method: "GET",
+    });
+
+    let username = users.json;
+    console.log(users);
+
+    for (i = 0; i < username.length; i++) {
+      if (username[i].userName === userName) {
+        alert("User already exists. Please login");
+      }
+    }
+
     if (response.ok) {
       document.location.replace("/profile");
     } else {
@@ -49,10 +63,10 @@ async function signupFormHandler(event) {
       alert("Unable to sign up.");
     }
   }
-
   console.log("success");
   navigator.geolocation.getCurrentPosition(success, success);
 }
+
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
