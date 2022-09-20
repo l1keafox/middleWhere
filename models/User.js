@@ -20,6 +20,10 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    icon:{
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
 
     longitude: {
       type: DataTypes.DECIMAL(15, 6),
@@ -38,6 +42,8 @@ User.init(
     },
     groupId: {
       type: DataTypes.INTEGER,
+//      type: DataTypes.ARRAY(DataTypes.INTEGER),
+
       references: {
         model: "group",
         key: "id",

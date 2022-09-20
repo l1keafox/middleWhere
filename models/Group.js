@@ -23,6 +23,17 @@ Group.init(
       type: DataTypes.DECIMAL(15, 6),
       allowNull: true,
     },
+    //  These are 'options' that for this group settings, this data isn't on the user, but teh
+    //  Group, because it's based on the grou p. 
+    userExcludeStatus:{
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
+    userButtonStatus :{
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
   },
   {
     sequelize,

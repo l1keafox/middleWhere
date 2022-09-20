@@ -144,12 +144,12 @@ router.put("/joinGroup/:groupName", async (req, res) => {
       name: req.params.groupName,
     },
   });
-  console.log(userGroup,userGroup.dataValues.id);
   if(!userGroup.dataValues){
     res.status(200);
     return;
   }
-    let updatedUser = await  User.update(
+  //console.log(userGroup,userGroup.dataValues.id);
+  let updatedUser = await  User.update(
     {
       groupId: userGroup.dataValues.id,
     },
