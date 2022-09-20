@@ -3,15 +3,12 @@ const User = require("../../models/User.js");
 const Group = require("../../models/Group");
 
 // GET users with matching usernames - used to check for existing user on sign up
-router.get("/allUsers/:userName", async (req, res) => {
+router.get("/allUsers", async (req, res) => {
   try {
-    const userName = await User.findOne({
-      where: {
-        userName: req.params.userName,
-      },
+    const userName = await User.findAll({
       attributes: ["userName"],
     });
-    res.json(userName);
+    res.json(userName)
   } catch (err) {
     console.log(err);
   }
