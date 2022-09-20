@@ -69,6 +69,7 @@ router.post("/", async (req, res) => {
         userName: req.body.userName,
       },
     });
+    console.log(req.body.userName, existUser);
 
     if(existUser){
       res.status(201);
