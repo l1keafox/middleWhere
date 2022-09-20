@@ -64,12 +64,13 @@ router.post("/", async (req, res) => {
 
     // lets isee if this user already exists
 
+    console.log(req.body.username);
     const existUser = await User.findOne({
       where: {
-        userName: req.body.userName,
+        userName: req.body.username,
       },
     });
-    console.log(req.body.userName, existUser);
+    console.log(existUser);
 
     if(existUser){
       res.status(201);
