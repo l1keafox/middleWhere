@@ -42,7 +42,7 @@
  text-align: center;
 }
 
-@media only screen and (max-width: 1024px) { 
+@media screen and (max-width: 1024px) { 
 .navbar { 
   display:flex; 
   justify-content: center; }
@@ -79,13 +79,19 @@ footer {
 /* .info-boxes {
   flex-wrap: wrap;
 } */
-@media only screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
   .info-boxes {
     flex-wrap: wrap;
   }
 
   .profile-cards {
-    flex-wrap: wrap;
+   flex-direction: column;
+   width: fit-content;
+  }
+
+  .prof-card {
+    width: 80vw;
+    height: fit-content;
   }
 
   #signUpLogIn {
