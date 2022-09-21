@@ -58,6 +58,7 @@ router.get("/", async (req, res) => {
       res.render("map", {
         members: allMems ? allMems : null,
         groupName: currentUserGroup ? currentUserGroup.dataValues.name : null,
+        "googleKey": process.env.GOOGLE_API,
         allUserGroups,
         noGroupMessage,
         noGroup,
